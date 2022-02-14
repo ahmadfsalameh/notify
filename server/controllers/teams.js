@@ -76,7 +76,9 @@ export const getTeamById = async (teamId) => {
 export const addUserToTeam = async (userId, teamId) => {
   const team = await Team.findById(teamId);
 
-  team.members.push(userId);
+  if (team.members.includes(userId)) return;
+  else if (team.owner.equals(userId)) return;
 
+  team.members.push(userId);
   await team.save();
 };
