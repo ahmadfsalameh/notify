@@ -3,9 +3,9 @@ import _ from "lodash";
 import mongoose from "mongoose";
 import { getAppById } from "./apps.js";
 
-export const getTeam = async (req, res) => {
+export const getTeams = async (req, res) => {
   const { id } = req.user;
-  const team = await Team.find({
+  const teams = await Team.find({
     $or: [{ owner: id }, { members: id }],
   })
     .sort({ _id: -1 })
@@ -14,7 +14,7 @@ export const getTeam = async (req, res) => {
     .populate("owner", ["name", "avatar"])
     .populate("app", "name");
 
-  res.send(team);
+  res.send(teams);
 };
 
 export const createTeam = async (req, res) => {
