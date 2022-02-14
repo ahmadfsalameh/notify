@@ -9,6 +9,7 @@ import CreateIssueForm from "./createIssueForm/createIssueForm";
 import Button from "../../common/button/button";
 import { BiPlus } from "react-icons/bi";
 import IssuesGrid from "./issuesGrid/issuesGrid";
+import DashboardLoader from "../../dashboardLoader/dashboardLoader";
 
 import "./issuesContent.css";
 
@@ -18,6 +19,7 @@ const IssuesContent = () => {
   const [bugs, setBugs] = useState([]);
   const [apps, setApps] = useState([]);
   const [filterApp, setFilterApp] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   let options = [{ value: null, label: "All Apps" }];
 
@@ -43,6 +45,7 @@ const IssuesContent = () => {
           }),
         ]);
       } catch (ex) {}
+      setLoading(false);
     };
     getApps();
     getBugs();
@@ -51,6 +54,8 @@ const IssuesContent = () => {
       setApps({ value: null, label: "All Apps" });
     };
   }, [token]);
+
+  if (loading) return <DashboardLoader />;
 
   return (
     <BugsContext.Provider value={{ bugs, setBugs }}>
