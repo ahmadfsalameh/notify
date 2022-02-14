@@ -44,7 +44,7 @@ const Issue = ({ bug, isTask, setPopup }) => {
                         setPopup([
                           <AssignIssue
                             bugs={bugs}
-                            bugId={_id}
+                            bug={bug}
                             setBugs={setBugs}
                             setPopup={setPopup}
                           />,
