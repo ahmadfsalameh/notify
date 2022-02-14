@@ -15,7 +15,6 @@ export const getTeams = async (req, res) => {
     .populate("app", "name");
 
   res.send(teams);
-<<<<<<< HEAD
 };
 
 export const getMembers = async (req, res) => {
@@ -30,8 +29,6 @@ export const getMembers = async (req, res) => {
   ]);
 
   res.send(team);
-=======
->>>>>>> 6417656aff97e01c69c98ea5d1f8f9921703201e
 };
 
 export const createTeam = async (req, res) => {
