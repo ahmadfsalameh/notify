@@ -8,6 +8,7 @@ import { BiPlus } from "react-icons/bi";
 import CreateTeamForm from "./createTeamForm/createTeamForm";
 import TeamElement from "./teamElement/teamElement";
 import DashboardLoader from "../../dashboardLoader/dashboardLoader";
+import text from "../../../constants/text.json";
 
 import "./teamsContent.css";
 
@@ -45,12 +46,13 @@ const TeamsContent = () => {
 
   if (loading) return <DashboardLoader />;
 
+  const { teams: teamsText } = text;
+
   return (
     <section className="teams">
       <div className="teams-header">
         <p>
-          You are a member in {teams.length} team
-          {teams.length > 1 || teams.length === 0 ? "s" : " only"}
+          {teamsText.statment} {teams.length} {teamsText.teams}
         </p>
         <Button
           label={<BiPlus />}
@@ -64,7 +66,7 @@ const TeamsContent = () => {
                 setTeams={setTeams}
                 setPopup={setPopup}
               />,
-              "Create New Team",
+              teamsText.create.label,
             ])
           }
         />

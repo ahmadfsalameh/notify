@@ -6,6 +6,7 @@ import { RiDeleteBin5Line } from "react-icons/ri";
 import Group from "../../../common/group/group";
 import InfoGroup from "../../../common/infoGroup/infoGroup";
 import appsService from "../../../../services/appsService";
+import text from "../../../../constants/text.json";
 
 import "./appElement.css";
 
@@ -26,6 +27,8 @@ const AppElement = ({ app, apps, setApps }) => {
     }
   };
 
+  const { apps: appsText } = text;
+
   return (
     <Group
       label={name}
@@ -44,13 +47,13 @@ const AppElement = ({ app, apps, setApps }) => {
       content={
         <>
           <div className="row">
-            <InfoGroup label="Issues" content={bugs.length} />
+            <InfoGroup label={appsText.stats.issues} content={bugs.length} />
             <InfoGroup
-              label="Solved Issues"
+              label={appsText.stats.solved}
               content={bugs.length ? closedBugs || 0 : 0}
             />
             <InfoGroup
-              label="Last Report"
+              label={appsText.stats.lastreport}
               waves={true}
               content={
                 bugs.length ? (
@@ -64,11 +67,11 @@ const AppElement = ({ app, apps, setApps }) => {
             />
           </div>
           <InfoGroup
-            label="Responsible Team"
+            label={appsText.team}
             waves={true}
-            content={"You haven't assigned this app to a team yet!"}
+            content={appsText.noTeam}
           />
-          <InfoGroup label="Api Key" waves={true} content={apiKey} />
+          <InfoGroup label={appsText.apikey} waves={true} content={apiKey} />
         </>
       }
     />

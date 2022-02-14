@@ -4,6 +4,7 @@ import Select from "react-select";
 import IssuesGrid from "../issuesContent/issuesGrid/issuesGrid";
 import bugsService from "../../../services/bugsService";
 import DashboardLoader from "../../dashboardLoader/dashboardLoader";
+import text from "../../../constants/text.json";
 
 import "./tasksContent.css";
 
@@ -13,7 +14,7 @@ const TasksContent = () => {
   const [filterApp, setFilterApp] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const options = [{ value: null, label: "All Apps" }];
+  const options = [{ value: null, label: text.filters.apps }];
 
   tasks.forEach((task) => {
     const { _id, name } = task.app;
@@ -41,7 +42,7 @@ const TasksContent = () => {
     <section className="tasks">
       <div className="tasks-header">
         <div className="select-box">
-          <label>Showing issues for</label>
+          <label>{text.issues.filters.apps}</label>
           <Select
             options={options}
             defaultValue={options[0]}

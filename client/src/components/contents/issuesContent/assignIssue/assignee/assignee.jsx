@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import Button from "../../../../common/button/button";
 import bugsService from "../../../../../services/bugsService";
+import text from "../../../../../constants/text.json";
 
 import "./assignee.css";
 
@@ -35,6 +36,8 @@ const Assignee = ({
     }
   };
 
+  const { assign } = text.issues;
+
   return (
     <div className="assignee">
       <div className="avatar">
@@ -42,10 +45,10 @@ const Assignee = ({
       </div>
       <div className="assignee-info">
         <p>{assignee.name}</p>
-        {self ? <span>Yourself</span> : <span>{team.name}</span>}
+        {self ? <span>{assign.me}</span> : <span>{team.name}</span>}
       </div>
       <Button
-        label="Assign"
+        label={assign.action}
         className="btn-action"
         LoadingSpinnerClass="loading-spinner-icon"
         loading={loading}

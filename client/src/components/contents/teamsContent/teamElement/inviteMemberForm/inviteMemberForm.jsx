@@ -5,6 +5,7 @@ import Button from "../../../../common/button/button";
 import useForm from "../../../../../hooks/useForm";
 import { useState } from "react";
 import invitesService from "../../../../../services/invitesService";
+import text from "../../../../../constants/text.json";
 
 const InviteMemberForm = ({ team }) => {
   const [data, errors, setData, setErrors, handleSubmit] = useForm(
@@ -41,19 +42,23 @@ const InviteMemberForm = ({ team }) => {
       </div>
     );
 
+  const { invite: inviteText } = text.teams;
+
   return (
     <div className="create-content">
-      <p>Invite new members to your team ({team.name}).</p>
+      <p>
+        {inviteText.description} ({team.name}).
+      </p>
       <form onSubmit={(e) => handleSubmit(e, sendInvite)}>
         <Input
           name="email"
-          label="Member email"
+          label={inviteText.form.email}
           icon={<BiAt />}
           value={data.email}
           onChange={setData}
         />
         <Button
-          label="Invite to team"
+          label={inviteText.form.action}
           className="btn-action btn-primary"
           loading={loading}
         />

@@ -4,6 +4,7 @@ import appsService from "../../../../services/appsService";
 import Input from "../../../common/input/input";
 import Button from "../../../common/button/button";
 import { BiCog } from "react-icons/bi";
+import text from "../../../../constants/text.json";
 
 const CreateAppForm = ({ apps, setApps, setPopup }) => {
   const [data, errors, setData, setErrors, handleSubmit] = useForm(
@@ -35,20 +36,23 @@ const CreateAppForm = ({ apps, setApps, setPopup }) => {
       setLoading(false);
     }
   };
+
+  const { apps: appsText } = text;
+
   return (
     <div className="create-content">
-      <p>Create new apps for your projects and start adding issues.</p>
+      <p>{appsText.create.description}</p>
       <form onSubmit={(e) => handleSubmit(e, createApp)}>
         <Input
           value={data.name}
           onChange={setData}
           name="name"
-          label="App Name"
+          label={appsText.create.form.name}
           error={errors.name}
           icon={<BiCog />}
         />
         <Button
-          label="Create App"
+          label={appsText.create.form.action}
           className="btn-action btn-primary"
           loading={loading}
         />

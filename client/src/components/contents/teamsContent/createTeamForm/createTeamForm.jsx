@@ -6,6 +6,7 @@ import Input from "../../../common/input/input";
 import { BiGroup } from "react-icons/bi";
 import Select from "react-select";
 import teamsService from "../../../../services/teamsService";
+import text from "../../../../constants/text.json";
 
 const CreateTeamForm = ({ apps, token, teams, setTeams, setPopup }) => {
   const [data, errors, setData, setErrors, handleSubmit] = useForm(
@@ -38,28 +39,27 @@ const CreateTeamForm = ({ apps, token, teams, setTeams, setPopup }) => {
         </p>
       </div>
     );
+
+  const { create: createText } = text.teams;
   return (
     <div className="create-content">
-      <p>
-        Create new team and invite you team members to collaborate on solving
-        issues!
-      </p>
+      <p>{createText.description}</p>
       <form onSubmit={(e) => handleSubmit(e, createTeam)}>
         <Input
           value={data.name}
           onChange={setData}
           name="name"
-          label="Team Name"
+          label={createText.form.name}
           error={errors.name}
           icon={<BiGroup />}
         />
         <Select
           options={apps}
           onChange={(e) => setData({ ...data, appId: e.value }, true)}
-          placeholder="Select app..."
+          placeholder={createText.form.select}
         />
         <Button
-          label="Create Team"
+          label={createText.form.action}
           className="btn-action btn-primary"
           loading={loading}
         />

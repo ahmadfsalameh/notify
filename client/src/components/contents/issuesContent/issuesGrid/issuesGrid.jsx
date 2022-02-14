@@ -5,6 +5,7 @@ import { DragDropContext } from "react-beautiful-dnd";
 import { reorderBugs } from "../../../../utils/reorderBugs";
 import bugsService from "../../../../services/bugsService";
 import filterBugsOnApps from "../../../../utils/filterBugsOnApps";
+import text from "../../../../constants/text.json";
 
 import "./issuesGrid.css";
 
@@ -62,7 +63,7 @@ const IssuesGrid = ({ bugs, filterApp, isTask = false, setPopup }) => {
           return (
             <IssuesTab
               key={k}
-              label={k}
+              label={text.issues.status[k]}
               bugs={v}
               isTask={isTask}
               setPopup={setPopup}

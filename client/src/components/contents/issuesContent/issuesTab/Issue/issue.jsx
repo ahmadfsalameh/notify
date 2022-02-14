@@ -4,8 +4,11 @@ import Button from "../../../../common/button/button";
 import dateFromObjectId from "../../../../../utils/dateFromObjectId";
 import TimeAgo from "timeago-react";
 import AssignIssue from "../../assignIssue/assignIssue";
+import text from "../../../../../constants/text.json";
 
 import "./issue.css";
+
+const { details, assign } = text.issues;
 
 const Issue = ({ bug, isTask, setPopup }) => {
   const { bugs, setBugs } = useContext(BugsContext);
@@ -24,21 +27,21 @@ const Issue = ({ bug, isTask, setPopup }) => {
           <tbody>
             {error && (
               <tr>
-                <th>Error</th>
+                <th>{details.error.label}</th>
                 <td>
-                  <Button label="View" className="btn-action" />
+                  <Button label={details.error.action} className="btn-action" />
                 </td>
               </tr>
             )}
             {isTask || (
               <tr>
-                <th>Assignee</th>
+                <th>{details.assignee.label}</th>
                 <td>
                   {assignee ? (
                     assignee.name
                   ) : (
                     <Button
-                      label="Assign"
+                      label={details.assignee.action}
                       className="btn-action"
                       onClick={() =>
                         setPopup([
@@ -48,7 +51,7 @@ const Issue = ({ bug, isTask, setPopup }) => {
                             setBugs={setBugs}
                             setPopup={setPopup}
                           />,
-                          "Create new issue",
+                          assign.label,
                         ])
                       }
                     />
@@ -57,7 +60,7 @@ const Issue = ({ bug, isTask, setPopup }) => {
               </tr>
             )}
             <tr>
-              <th>Reported</th>
+              <th>{details.reported}</th>
               <td>
                 <TimeAgo datetime={dateFromObjectId(_id)} />
               </td>

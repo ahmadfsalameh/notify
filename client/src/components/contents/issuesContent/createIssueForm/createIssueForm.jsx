@@ -5,6 +5,7 @@ import Button from "../../../common/button/button";
 import Textarea from "../../../common/textarea/textarea";
 import Select from "react-select";
 import bugsService from "../../../../services/bugsService";
+import text from "../../../../constants/text.json";
 
 const CreateIssueForm = ({ apps, bugs, setBugs, setPopup }) => {
   const options = apps.map((app) => {
@@ -37,32 +38,36 @@ const CreateIssueForm = ({ apps, bugs, setBugs, setPopup }) => {
       setLoading(false);
     }
   };
+
+  const { issues: issuesText } = text;
+
   if (!options.length)
     return (
       <div className="create-content">
         <p>
-          Please create an app first! <Link to="/apps">Create App</Link>
+          {issuesText.issue.noApps.description}{" "}
+          <Link to="/apps">{issuesText.issue.noApps.link}</Link>
         </p>
       </div>
     );
   return (
     <div className="create-content">
-      <p>Create new issues and assign it to different members in your teams!</p>
+      <p>{issuesText.issue.description}</p>
       <form onSubmit={(e) => handleSubmit(e, createBug)}>
         <Textarea
           value={data.message}
           name="message"
-          placeholder="Insert issue text here ..."
-          label="Issue"
+          placeholder={issuesText.issue.form.placeholder}
+          label={issuesText.issue.form.issue}
           onChange={setData}
         />
         <Select
           options={options}
           onChange={(e) => setData({ ...data, apiKey: e.value }, true)}
-          placeholder="Select app..."
+          placeholder={issuesText.issue.form.select}
         />
         <Button
-          label="Create Issue"
+          label={issuesText.issue.form.action}
           className="btn-action btn-primary"
           loading={loading}
         />

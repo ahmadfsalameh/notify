@@ -8,6 +8,7 @@ import NoApps from "./noApps/noApps";
 import Button from "../../common/button/button";
 import { BiPlus } from "react-icons/bi";
 import CreateAppForm from "./createAppForm/createAppForm";
+import text from "../../../constants/text.json";
 
 import "./appsContent.css";
 
@@ -36,13 +37,19 @@ const AppsContent = () => {
   }, [token]);
 
   if (loading) return <DashboardLoader />;
+
+  const { apps: appsText } = text;
+
   return (
     <>
       {apps.length ? (
         <section className="apps">
           <div className="apps-header">
             <p>
-              You have {apps.length} app{apps.length > 1 ? "s" : " only"}
+              {appsText.statment} {apps.length}{" "}
+              {apps.length > 1 && apps.length != 0
+                ? appsText.apps
+                : appsText.app}
             </p>
             <Button
               label={<BiPlus />}
@@ -54,7 +61,7 @@ const AppsContent = () => {
                     setApps={setApps}
                     setPopup={setPopup}
                   />,
-                  "Create New App",
+                  appsText.create.label,
                 ])
               }
             />

@@ -8,19 +8,22 @@ import {
 } from "react-icons/bi";
 import { BsHddStack, BsListCheck } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
-import logo from "../../assets/vectors/logo.svg";
+import logoSvg from "../../assets/vectors/logo.svg";
+import text from "../../constants/text.json";
 
 import "./aside.css";
 
 const Aside = () => {
+  const { logo, aside } = text;
   return (
     <aside>
       <div className="aside-logo">
         <div className="logo-container">
-          <img src={logo} />
+          <img src={logoSvg} />
         </div>
         <p>
-          Notify<span>Track your applications</span>
+          {logo.name}
+          <span>{logo.description}</span>
         </p>
       </div>
       <nav>
@@ -28,31 +31,31 @@ const Aside = () => {
           <li>
             <NavLink to="/">
               <BiHomeCircle />
-              Dashboard
+              {aside.dashboard}
             </NavLink>
           </li>
           <li>
             <NavLink to="/teams">
               <BiGroup />
-              Teams
+              {aside.teams}
             </NavLink>
           </li>
           <li>
             <NavLink to="/apps">
               <BsHddStack />
-              Apps
+              {aside.apps}
             </NavLink>
           </li>
           <li>
             <NavLink to="/issues">
               <BiBugAlt />
-              Issues
+              {aside.issues}
             </NavLink>
           </li>
           <li>
             <NavLink to="/tasks">
               <BsListCheck />
-              Tasks
+              {aside.tasks}
             </NavLink>
           </li>
         </ul>
@@ -60,18 +63,18 @@ const Aside = () => {
           <li>
             <NavLink to="/settings">
               <BiCog />
-              Settings
+              {aside.settings}
             </NavLink>
           </li>
           <li>
             <NavLink to="/help">
               <BiHelpCircle />
-              Help
+              {aside.help}
             </NavLink>
           </li>
         </ul>
       </nav>
-      <p className="copyright">Made by Ahmad Salameh</p>
+      <p className="copyright">{aside.credit}</p>
     </aside>
   );
 };

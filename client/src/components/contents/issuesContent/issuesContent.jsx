@@ -10,6 +10,7 @@ import Button from "../../common/button/button";
 import { BiPlus } from "react-icons/bi";
 import IssuesGrid from "./issuesGrid/issuesGrid";
 import DashboardLoader from "../../dashboardLoader/dashboardLoader";
+import text from "../../../constants/text.json";
 
 import "./issuesContent.css";
 
@@ -21,9 +22,10 @@ const IssuesContent = () => {
   const [filterApp, setFilterApp] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  let options = [{ value: null, label: "All Apps" }];
+  let options = [{ value: null, label: text.filters.apps }];
 
-  if (apps.length) options = [{ value: null, label: "All Apps" }, ...apps];
+  if (apps.length)
+    options = [{ value: null, label: text.filters.apps }, ...apps];
 
   useEffect(() => {
     if (!token) return;
@@ -51,18 +53,20 @@ const IssuesContent = () => {
     getBugs();
 
     return () => {
-      setApps({ value: null, label: "All Apps" });
+      setApps({ value: null, label: text.filters.apps });
     };
   }, [token]);
 
   if (loading) return <DashboardLoader />;
+
+  const { issues: issuesText } = text;
 
   return (
     <BugsContext.Provider value={{ bugs, setBugs }}>
       <section className="issues">
         <div className="issues-header">
           <div className="select-box">
-            <label>Showing issues for</label>
+            <label>{issuesText.filters.apps}</label>
             <Select
               options={options}
               defaultValue={options[0]}
@@ -80,7 +84,7 @@ const IssuesContent = () => {
                   setBugs={setBugs}
                   setPopup={setPopup}
                 />,
-                "Create new issue",
+                issuesText.issue.label,
               ])
             }
           />

@@ -1,7 +1,7 @@
 import React from "react";
 import createAppSvg from "../../../../assets/vectors/create-app.svg";
 import CreateAppForm from "../createAppForm/createAppForm";
-
+import text from "../../../../constants/text.json";
 import "./noApps.css";
 
 const NoApps = ({ apps, setApps }) => {
@@ -12,7 +12,7 @@ const NoApps = ({ apps, setApps }) => {
           <img src={createAppSvg} />
         </div>
         <div className="no-apps-content">
-          <h6>You have no apps yet!</h6>
+          <h6>{text.apps.noApps.label}</h6>
           <CreateAppForm apps={apps} setApps={setApps} />
         </div>
       </div>

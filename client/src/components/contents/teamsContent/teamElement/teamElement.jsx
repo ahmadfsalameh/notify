@@ -6,6 +6,7 @@ import { RiDeleteBin5Line } from "react-icons/ri";
 import Member from "./member/member";
 import InviteMemberForm from "./inviteMemberForm/inviteMemberForm";
 import teamsService from "../../../../services/teamsService";
+import text from "../../../../constants/text.json";
 
 const TeamElement = ({ user, token, team, teams, setTeams, setPopup }) => {
   const [loading, setLoading] = useState(false);
@@ -26,19 +27,24 @@ const TeamElement = ({ user, token, team, teams, setTeams, setPopup }) => {
     }
   };
 
+  const { teams: teamsText } = text;
+
   return (
     <Group
       label={team.name}
-      prefix="Team"
+      prefix={teamsText.prefix}
       actions={
         team.owner._id == user._id && (
           <>
             <Button
-              label="Invite member"
+              label={teamsText.inviteAction}
               className="btn-action"
               LoadingSpinnerClass="loading-spinner-icon"
               onClick={() =>
-                setPopup([<InviteMemberForm team={team} />, "Invite Member "])
+                setPopup([
+                  <InviteMemberForm team={team} />,
+                  teamsText.invite.label,
+                ])
               }
             />
             <Button
@@ -54,7 +60,7 @@ const TeamElement = ({ user, token, team, teams, setTeams, setPopup }) => {
       content={
         <>
           <InfoGroup
-            label="Members"
+            label={teamsText.members}
             waves={true}
             content={
               <div className="members">
@@ -66,7 +72,11 @@ const TeamElement = ({ user, token, team, teams, setTeams, setPopup }) => {
               </div>
             }
           />
-          <InfoGroup label="Managed App" waves={true} content={team.app.name} />
+          <InfoGroup
+            label={teamsText.app}
+            waves={true}
+            content={team.app.name}
+          />
         </>
       }
     />
