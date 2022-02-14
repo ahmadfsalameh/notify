@@ -4,9 +4,9 @@ import { Droppable, Draggable } from "react-beautiful-dnd";
 
 import "./issuesTab.css";
 
-const IssuesTab = ({ bugs, label, isTask, setPopup }) => {
+const IssuesTab = ({ bugs, label, type, isTask, setPopup }) => {
   return (
-    <div className={"issues-tab"} data-type={label}>
+    <div className={"issues-tab"} data-type={type}>
       <h6>{label}</h6>
       <Droppable
         droppableId={label}

@@ -64,6 +64,7 @@ const IssuesGrid = ({ bugs, filterApp, isTask = false, setPopup }) => {
             <IssuesTab
               key={k}
               label={text.issues.status[k]}
+              type={k}
               bugs={v}
               isTask={isTask}
               setPopup={setPopup}
