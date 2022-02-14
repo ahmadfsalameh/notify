@@ -1,0 +1,45 @@
+div.info-group {
+  width: 100%;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  background-color: var(--primary-blue);
+  margin-top: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+div.info-group-waves div.waves {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  aspect-ratio: 3/2;
+}
+div.info-group-waves div.waves img {
+  width: 100%;
+  height: 100%;
+}
+div.info-group:first-of-type {
+  margin-top: 0;
+}
+div.info-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #fff;
+}
+div.info-group div.info-group-content {
+  margin-top: 1rem;
+  color: #e9e9e9;
+  font-size: 0.8rem;
+  position: relative;
+  z-index: 1;
+}
+div.info-group-actions {
+  margin-left: auto;
+}
+div.info-group-actions button:first-of-type {
+  margin-right: 0.7rem;
+}
+div.info-group-actions button:last-of-type {
+  margin-right: 0;
+}

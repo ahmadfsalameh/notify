@@ -1,0 +1,50 @@
+div.create-content {
+  width: 100%;
+  padding: 1rem;
+}
+div.create-content p {
+  font-size: 1rem;
+  color: var(--primary-black);
+  line-height: 1.7;
+}
+div.create-content p a {
+  text-decoration: none;
+  color: var(--primary-blue);
+  margin-left: 0.2rem;
+}
+div.create-content p a:hover {
+  text-decoration: underline;
+}
+div.create-content form {
+  width: 100%;
+  margin-top: 1.5rem;
+}
+div.create-content form div.input-container {
+  margin-bottom: 0.5rem;
+}
+div.create-content form div.textarea-container {
+  margin-bottom: 0.5rem;
+}
+div.create-content form button {
+  margin-top: 1rem;
+}
+.css-1s2u09g-control {
+  border-radius: var(--border-radius) !important;
+  border-color: var(--primary-border) !important;
+  height: 3rem;
+  min-width: 250px !important;
+  cursor: pointer !important;
+}
+.css-1pahdxg-control {
+  border-color: var(--primary-blue) !important;
+  border-radius: var(--border-radius) !important;
+  height: 3rem;
+  box-shadow: none !important;
+  min-width: 250px !important;
+  cursor: pointer !important;
+}
+.css-26l3qy-menu {
+  border-radius: var(--border-radius) !important;
+  z-index: 10 !important;
+  position: relative;
+}

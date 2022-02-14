@@ -1,0 +1,27 @@
+article.dashboard {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 280px calc(100% - 280px);
+  overflow: hidden;
+}
+main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-flow: column;
+  overflow: hidden;
+}
+div.content {
+  width: 100%;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+div.content-container-main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  position: relative;
+}

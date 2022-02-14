@@ -1,0 +1,40 @@
+div.loading-spinner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: wait;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+div.loading-spinner::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 400ms infinite linear;
+}
+div.loading-spinner-icon::before {
+  border: 2px solid var(--primary-blue);
+  border-top-color: transparent;
+}
+div.loading-spinner-dashboard::before {
+  width: 25px;
+  height: 25px;
+  border: 2px solid var(--primary-blue);
+  border-top-color: transparent;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

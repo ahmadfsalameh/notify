@@ -1,0 +1,22 @@
+section.apps {
+  width: 100%;
+  height: 100%;
+}
+div.apps-header {
+  width: 100%;
+  height: 4rem;
+  border-bottom: 1px solid var(--primary-border);
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+}
+div.apps-header button {
+  margin-left: auto;
+}
+div.apps-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+  padding: 1rem 1.5rem;
+}

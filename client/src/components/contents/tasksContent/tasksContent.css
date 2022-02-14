@@ -1,0 +1,11 @@
+section.tasks {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+}
+div.tasks-header {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--primary-border);
+}

@@ -1,0 +1,77 @@
+div.input-container {
+  margin-bottom: 1rem;
+}
+div.input-box {
+  position: relative;
+}
+div.input-container label {
+  display: block;
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: var(--primary-black-light);
+  cursor: pointer;
+  transition: all 250ms ease-in-out;
+}
+div.input-container label.label-active {
+  background-color: #fff;
+  padding: 0 8px;
+  top: -0.5rem;
+  transform: translateY(0);
+  font-size: 0.9rem;
+}
+div.input-container input {
+  width: 100%;
+  height: 3.6rem;
+  border: 1px solid var(--primary-border);
+  background: #fdfdfd;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  color: var(--primary-black);
+  outline: none;
+  padding: 0 1rem;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: all 200ms ease-in-out;
+}
+div.input-container input:focus {
+  cursor: text;
+  border-color: var(--primary-blue);
+  background-color: #fff;
+}
+div.input-container input.input-active {
+  cursor: text;
+  background-color: #fff;
+}
+div.input-container span.input-icon {
+  display: flex;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: var(--primary-black-lighter);
+  transition: all 200ms ease-in-out;
+}
+div.input-container input:focus ~ label {
+  color: var(--primary-blue);
+}
+div.input-container input:focus ~ span.input-icon {
+  color: var(--primary-blue);
+}
+div.input-container input.input-error {
+  border-color: var(--primary-error-red);
+}
+div.input-container input.input-error ~ label {
+  color: var(--primary-error-red);
+}
+div.input-container input.input-error ~ span.input-icon {
+  color: var(--primary-error-red);
+}
+p.input-error-msg {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: var(--primary-error-red);
+}

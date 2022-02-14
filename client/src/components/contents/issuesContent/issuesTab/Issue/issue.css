@@ -1,0 +1,68 @@
+div.issue-container {
+  width: 100%;
+  border-radius: var(--border-radius);
+  background-color: #f3f5f9;
+  margin-bottom: 1rem;
+  animation: marginBottom 300ms linear;
+}
+@keyframes marginBottom {
+  from {
+    margin-bottom: 0rem;
+  }
+  to {
+    margin-bottom: 1rem;
+  }
+}
+div.issue-container-move {
+  cursor: move;
+}
+div.issue-title {
+  width: 100%;
+  padding: 1rem;
+  border-bottom: 1px solid #fff;
+  font-size: 0.9rem;
+  color: var(--primary-black);
+}
+div.issue-title p {
+  width: 100%;
+  overflow: hidden;
+  line-height: 1.7;
+}
+div.issue-details {
+  width: 100%;
+  padding: 1rem;
+}
+div.issue-details table {
+  width: 100%;
+  border-spacing: 0;
+  border-radius: var(--border-radius);
+  background-color: #fff;
+  overflow: hidden;
+  table-layout: fixed;
+}
+div.issue-details table th,
+div.issue-details table td {
+  font-size: 0.9rem;
+  padding: 1rem;
+  border-bottom: 1px solid #f3f5f9;
+  text-align: left;
+}
+div.issue-details table tr:last-of-type th,
+div.issue-details table tr:last-of-type td {
+  border: 0;
+}
+div.issue-details table th {
+  font-weight: 500;
+  color: var(--primary-black);
+  white-space: nowrap;
+}
+div.issue-details table th::after {
+  content: " :";
+}
+div.issue-details table td {
+  color: var(--primary-black-light);
+  padding-left: 0;
+  white-space: pre;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

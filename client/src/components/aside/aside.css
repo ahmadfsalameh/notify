@@ -1,0 +1,96 @@
+aside {
+  height: 100vh;
+  display: flex;
+  flex-flow: column;
+  border-right: 1px solid var(--primary-border);
+}
+aside div.aside-logo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem 2rem 1.5rem;
+}
+aside div.aside-logo div.logo-container {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--border-radius);
+  position: relative;
+  overflow: hidden;
+}
+aside div.aside-logo div.logo-container img {
+  width: 100%;
+  height: 100%;
+}
+aside div.aside-logo p {
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--primary-black);
+  margin-left: 0.8rem;
+  user-select: none;
+}
+aside div.aside-logo p span {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--primary-black-light);
+}
+aside nav {
+  width: 100%;
+  flex-grow: 1;
+  padding-bottom: 1.5rem;
+}
+aside nav ul {
+  width: 100%;
+  list-style: none;
+}
+aside nav ul:nth-child(2) {
+  border-top: 1px solid var(--primary-border);
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+aside nav ul li {
+  width: 100%;
+  height: 2.9rem;
+  margin-top: 0.5rem;
+}
+aside nav ul li:first-of-type {
+  margin-top: 0;
+}
+aside nav ul li a {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: var(--primary-black-lighter);
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  padding: 0.5rem 1.5rem;
+  position: relative;
+}
+aside nav ul li a svg {
+  margin-right: 1.2rem;
+  font-size: 1.3rem !important;
+}
+aside nav ul li a:hover {
+  color: var(--primary-black);
+}
+aside nav ul li a.active {
+  color: var(--primary-black);
+}
+aside nav ul li a.active::before {
+  content: "";
+  height: 100%;
+  width: 2px;
+  background-color: var(--primary-black);
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+p.copyright {
+  width: 100%;
+  padding: 1.5rem;
+  font-size: 0.8rem;
+  color: var(--primary-black-light);
+}

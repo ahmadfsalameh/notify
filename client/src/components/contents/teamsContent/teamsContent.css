@@ -1,0 +1,29 @@
+section.teams {
+  width: 100%;
+  height: 100%;
+}
+div.teams-header {
+  width: 100%;
+  height: 4rem;
+  border-bottom: 1px solid var(--primary-border);
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+}
+div.teams-header button {
+  margin-left: auto;
+}
+div.teams-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+  padding: 1rem 1.5rem;
+}
+div.members {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 75px);
+  grid-gap: 1rem;
+  margin-top: 1.5rem;
+}

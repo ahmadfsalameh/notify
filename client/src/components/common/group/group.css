@@ -1,0 +1,45 @@
+div.group {
+  width: 100%;
+  height: fit-content;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--primary-border);
+  overflow: hidden;
+  background-color: #fff;
+}
+div.group-header {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+}
+div.group-header label {
+  height: 2.5rem;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  color: var(--primary-black-light);
+}
+div.group-header label span {
+  color: var(--primary-black);
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+div.group-header label span:after {
+  content: ":";
+}
+div.group-content {
+  padding: 1rem;
+  padding-top: 0;
+}
+div.group-actions {
+  margin-left: 1rem;
+  display: flex;
+}
+div.group-actions button:first-of-type {
+  margin-right: 0.5rem;
+}
+div.group-actions button:last-of-type {
+  margin-right: 0;
+}

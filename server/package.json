@@ -1,0 +1,23 @@
+{
+  "name": "bugtracker-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "keywords": [],
+  "dependencies": {
+    "@dicebear/avatars": "^4.10.2",
+    "@dicebear/avatars-bottts-sprites": "^4.10.2",
+    "bcrypt": "^5.0.1",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "express-async-errors": "^3.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "mongoose": "^6.2.0",
+    "winston": "^3.5.1"
+  },
+  "author": "Ahmad Salameh",
+  "license": "ISC",
+  "description": ""
+}

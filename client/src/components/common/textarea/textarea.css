@@ -1,0 +1,54 @@
+div.textarea-container {
+  margin-bottom: 1.5rem;
+}
+div.textarea-box {
+  position: relative;
+}
+div.textarea-container label {
+  display: block;
+  position: absolute;
+  left: 1rem;
+  top: -0.5rem;
+  font-size: 1rem;
+  color: var(--primary-black-light);
+  cursor: pointer;
+  transition: all 250ms ease-in-out;
+  background-color: #fff;
+  padding: 0 8px;
+}
+div.textarea-container textarea {
+  width: 100%;
+  height: 10rem;
+  border: 1px solid var(--primary-border);
+  background: #fdfdfd;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  color: var(--primary-black);
+  outline: none;
+  padding: 1.5rem 1rem 1rem 1rem;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: all 200ms ease-in-out;
+  resize: vertical;
+  line-height: 1.6;
+}
+div.textarea-container textarea:focus {
+  cursor: text;
+  border-color: #6276d7;
+  background-color: #fff;
+}
+div.textarea-container textarea:focus ~ label {
+  color: #6276d7;
+}
+div.textarea-container textarea.textarea-active {
+  cursor: text;
+  background-color: #fff;
+}
+div.textarea-container textarea.textarea-error {
+  border-color: var(--primary-error-red);
+}
+p.textarea-error-msg {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: var(--primary-error-red);
+}

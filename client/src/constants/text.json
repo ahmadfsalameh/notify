@@ -1,0 +1,19 @@
+{
+  "visualBoard": [
+    {
+      "id": 1,
+      "heading": "Get notified everytime there is an issue",
+      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio vero quaerat id distinctio possimus omnis?"
+    },
+    {
+      "id": 2,
+      "heading": "Create and join teams to work on issues",
+      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio vero quaerat id distinctio possimus omnis?"
+    },
+    {
+      "id": 3,
+      "heading": "Always stay in touch with your team",
+      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio vero quaerat id distinctio possimus omnis?"
+    }
+  ]
+}

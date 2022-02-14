@@ -1,0 +1,27 @@
+div.greetings {
+  width: 100%;
+  margin: 1.5rem 0 3rem 0;
+  text-align: center;
+  animation: popup 300ms ease-in-out;
+}
+@keyframes popup {
+  from {
+    transform: scale(0.9) translateY(-10px);
+    opacity: 0.8;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+div.greetings h1 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--primary-black);
+}
+div.greetings p {
+  margin-top: 0.3rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--primary-black-light);
+}

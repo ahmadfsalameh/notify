@@ -1,0 +1,10 @@
+div.issues-grid {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+div.issues-grid-three {
+  grid-template-columns: repeat(3, 1fr);
+}
