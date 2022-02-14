@@ -2,3 +2,8 @@ div.assign-issue-members {
   width: 100%;
   list-style: none;
 }
+div.assign-issue-loading {
+  width: 100%;
+  padding: 3rem;
+  position: relative;
+}
