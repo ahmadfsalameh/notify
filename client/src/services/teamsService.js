@@ -13,7 +13,7 @@ const getMembers = async (id) => {
 };
 
 const deleteTeam = async (id) => {
-  return await http.get(`${apiEndpoint}/teams/${id}`);
+  return await http.delete(`${apiEndpoint}/teams/${id}`);
 };
 
 export default {
