@@ -17,6 +17,20 @@ export const getTeams = async (req, res) => {
   res.send(teams);
 };
 
+export const getMembers = async (req, res) => {
+  const { id } = req.user;
+  const { appId } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(appId)) return res.status(400).send();
+
+  const team = await Team.find({ owner: id, app: appId }).populate("members", [
+    "name",
+    "avatar",
+  ]);
+
+  res.send(team);
+};
+
 export const createTeam = async (req, res) => {
   const { id } = req.user;
   const teamData = _.pick(req.body, ["name", "appId"]);
