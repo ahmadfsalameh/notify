@@ -3,7 +3,6 @@ import { UserContext } from "../../../context/userContext";
 import Select from "react-select";
 import IssuesGrid from "../issuesContent/issuesGrid/issuesGrid";
 import bugsService from "../../../services/bugsService";
-import filterBugsOnApps from "../../../utils/filterBugsOnApps";
 
 import "./tasksContent.css";
 
@@ -33,8 +32,6 @@ const TasksContent = () => {
     getTasks();
   }, [token]);
 
-  const filteredTasks = filterBugsOnApps(tasks, filterApp);
-
   return (
     <section className="tasks">
       <div className="tasks-header">
@@ -47,7 +44,7 @@ const TasksContent = () => {
           />
         </div>
       </div>
-      <IssuesGrid bugs={filteredTasks} isTask={true} />
+      <IssuesGrid bugs={tasks} filterApp={filterApp} isTask={true} />
     </section>
   );
 };

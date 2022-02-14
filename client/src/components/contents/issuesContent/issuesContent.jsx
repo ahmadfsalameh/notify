@@ -11,7 +11,6 @@ import { BiPlus } from "react-icons/bi";
 import IssuesGrid from "./issuesGrid/issuesGrid";
 
 import "./issuesContent.css";
-import filterBugsOnApps from "../../../utils/filterBugsOnApps";
 
 const IssuesContent = () => {
   const { token } = useContext(UserContext);
@@ -53,8 +52,6 @@ const IssuesContent = () => {
     };
   }, [token]);
 
-  const filteredBugs = filterBugsOnApps(bugs, filterApp);
-
   return (
     <BugsContext.Provider value={{ bugs, setBugs }}>
       <section className="issues">
@@ -83,7 +80,7 @@ const IssuesContent = () => {
             }
           />
         </div>
-        <IssuesGrid bugs={filteredBugs} setPopup={setPopup} />
+        <IssuesGrid bugs={bugs} filterApp={filterApp} setPopup={setPopup} />
       </section>
     </BugsContext.Provider>
   );
