@@ -1,11 +1,4 @@
-ul.assign-issue-members {
+div.assign-issue-members {
   width: 100%;
   list-style: none;
-}
-ul.assign-issue-members li {
-  width: 100%;
-  border-bottom: 1px solid var(--primary-border);
-}
-ul.assign-issue-members li:last-of-type {
-  border-bottom: 0;
 }

@@ -30,16 +30,14 @@ const AssignIssue = ({ bugs, bugId, setBugs, setPopup }) => {
   };
 
   return (
-    <ul className="assign-issue-members">
+    <div className="assign-issue-members">
       <Assignee assignee={user} self={true} {...props} />
       {teams.map((team) =>
         team.members.map((member) => (
-          <li key={member._id}>
-            <Assignee assignee={member} team={team} {...props} />
-          </li>
+          <Assignee key={member._id} assignee={member} team={team} {...props} />
         ))
       )}
-    </ul>
+    </div>
   );
 };
 

@@ -4,6 +4,10 @@ div.assignee {
   display: flex;
   gap: 1rem;
   align-items: center;
+  border-bottom: 1px solid var(--primary-border);
+}
+div.assignee:last-of-type {
+  border-bottom: 0;
 }
 div.assignee div.avatar {
   width: 50px;
