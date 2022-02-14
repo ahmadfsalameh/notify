@@ -7,6 +7,7 @@ import Button from "../../common/button/button";
 import { BiPlus } from "react-icons/bi";
 import CreateTeamForm from "./createTeamForm/createTeamForm";
 import TeamElement from "./teamElement/teamElement";
+import DashboardLoader from "../../dashboardLoader/dashboardLoader";
 
 import "./teamsContent.css";
 
@@ -15,6 +16,7 @@ const TeamsContent = () => {
   const setPopup = useContext(PopupContext);
   const [apps, setApps] = useState([]);
   const [teams, setTeams] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!token) return;
@@ -29,6 +31,7 @@ const TeamsContent = () => {
           }),
         ]);
       } catch (ex) {}
+      setLoading(false);
     };
     const getTeams = async () => {
       try {
@@ -39,6 +42,9 @@ const TeamsContent = () => {
     getApps();
     getTeams();
   }, [token]);
+
+  if (loading) return <DashboardLoader />;
+
   return (
     <section className="teams">
       <div className="teams-header">
