@@ -41,7 +41,9 @@ const TeamElement = ({ user, team, setPopup }) => {
               <div className="members">
                 <Member member={team.owner} leader={true} />
                 {team.members &&
-                  team.members.map((member) => <Member member={member} />)}
+                  team.members.map((member) => (
+                    <Member key={member._id} member={member} />
+                  ))}
               </div>
             }
           />
