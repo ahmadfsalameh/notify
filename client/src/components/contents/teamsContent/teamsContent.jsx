@@ -68,7 +68,10 @@ const TeamsContent = () => {
           <TeamElement
             key={team._id}
             user={user}
+            token={token}
             team={team}
+            teams={teams}
+            setTeams={setTeams}
             setPopup={setPopup}
           />
         ))}

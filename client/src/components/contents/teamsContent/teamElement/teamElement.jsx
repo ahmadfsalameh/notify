@@ -1,14 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import Group from "../../../common/group/group";
 import InfoGroup from "../../../common/infoGroup/infoGroup";
 import Button from "../../../common/button/button";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import Member from "./member/member";
 import InviteMemberForm from "./inviteMemberForm/inviteMemberForm";
+import teamsService from "../../../../services/teamsService";
 
-const TeamElement = ({ user, team, setPopup }) => {
+const TeamElement = ({ user, token, team, teams, setTeams, setPopup }) => {
+  const [loading, setLoading] = useState(false);
+
   //When adding a team and updating the state we don't have the team owner!
   if (!team.owner) team.owner = user;
+
+  const deleteTeam = async () => {
+    teamsService.setToken(token);
+    setLoading(true);
+    try {
+      await teamsService.deleteTeam(team._id);
+      setLoading(false);
+      setTeams([...teams.filter((t) => t._id !== team._id)]);
+    } catch (ex) {
+      console.log(ex);
+      setLoading(false);
+    }
+  };
+
   return (
     <Group
       label={team.name}
@@ -28,6 +45,8 @@ const TeamElement = ({ user, team, setPopup }) => {
               label={<RiDeleteBin5Line />}
               className="btn-action btn-icon"
               LoadingSpinnerClass="loading-spinner-icon"
+              loading={loading}
+              onClick={deleteTeam}
             />
           </>
         )
