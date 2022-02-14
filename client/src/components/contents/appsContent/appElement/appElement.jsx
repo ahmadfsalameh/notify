@@ -17,13 +17,6 @@ const AppElement = ({ app, loading, onDelete }) => {
       prefix="App"
       actions={
         <>
-          {team ? null : (
-            <Button
-              label="Assign to team"
-              className="btn-action"
-              LoadingSpinnerClass="loading-spinner-icon"
-            />
-          )}
           <Button
             label={<RiDeleteBin5Line />}
             className="btn-action btn-icon"
