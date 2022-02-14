@@ -3,6 +3,7 @@ import { UserContext } from "../../../context/userContext";
 import Select from "react-select";
 import IssuesGrid from "../issuesContent/issuesGrid/issuesGrid";
 import bugsService from "../../../services/bugsService";
+import DashboardLoader from "../../dashboardLoader/dashboardLoader";
 
 import "./tasksContent.css";
 
@@ -10,6 +11,7 @@ const TasksContent = () => {
   const { user, token } = useContext(UserContext);
   const [tasks, setTasks] = useState([]);
   const [filterApp, setFilterApp] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const options = [{ value: null, label: "All Apps" }];
 
@@ -27,10 +29,13 @@ const TasksContent = () => {
         const { data } = await bugsService.getTasks();
         setTasks(data);
       } catch (ex) {}
+      setLoading(false);
     };
 
     getTasks();
   }, [token]);
+
+  if (loading) return <DashboardLoader />;
 
   return (
     <section className="tasks">
