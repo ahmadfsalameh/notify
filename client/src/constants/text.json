@@ -1,4 +1,8 @@
 {
+  "logo": {
+    "name": "Notify",
+    "description": "Track you applications"
+  },
   "visualBoard": [
     {
       "id": 1,
@@ -15,5 +19,115 @@
       "heading": "Always stay in touch with your team",
       "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio vero quaerat id distinctio possimus omnis?"
     }
-  ]
+  ],
+  "timeOfDay": {
+    "morning": "Good Morning!",
+    "afternoon": "Good Afternoon!",
+    "evening": "Good Evening!"
+  },
+  "hi": "Hi",
+  "aside": {
+    "dashboard": "Dashboard",
+    "teams": "Teams",
+    "apps": "Apps",
+    "issues": "Issues",
+    "tasks": "Tasks",
+    "settings": "Settings",
+    "help": "Help",
+    "credit": "Made by Ahmad Salameh"
+  },
+  "filters": {
+    "apps": "All Apps"
+  },
+  "teams": {
+    "statment": "You are a member in",
+    "teams": "teams",
+    "create": {
+      "label": "Create New Team",
+      "description": "Create new team and invite you team members to collaborate on solving issues!",
+      "form": {
+        "name": "Team Name",
+        "select": "Select app...",
+        "action": "Create Team"
+      }
+    },
+    "prefix": "Team",
+    "inviteAction": "Invite member",
+    "members": "Members",
+    "invite": {
+      "label": "Invite Member",
+      "description": "Invite new members to your team",
+      "form": { "email": "Member email", "action": "Invite to team" }
+    },
+    "app": "Managed App",
+    "leader": "Leader"
+  },
+  "apps": {
+    "statment": "You have",
+    "app": "app only",
+    "apps": "apps",
+    "create": {
+      "label": "Create New App",
+      "description": "Create new apps for your projects and start adding issues.",
+      "form": {
+        "name": "App Name",
+        "action": "Create App"
+      }
+    },
+    "prefix": "App",
+    "stats": {
+      "issues": "Issues",
+      "solved": "Solved Issues",
+      "lastreport": "Last Report"
+    },
+    "team": "Responsible Team",
+    "noTeam": "You haven't assigned this app to a team yet!",
+    "apikey": "Api Key",
+    "noApps": {
+      "label": "You have no apps yet!",
+      "description": "Create new apps for your projects and start adding issues.",
+      "action": "Create App"
+    }
+  },
+  "issues": {
+    "filters": {
+      "apps": "Showing issues for"
+    },
+    "status": {
+      "unassigned": "Unassigned",
+      "open": "Open",
+      "underDevelopment": "Under Development",
+      "closed": "Closed"
+    },
+    "details": {
+      "assignee": {
+        "label": "Assignee",
+        "action": "Assign"
+      },
+      "error": {
+        "label": "Error",
+        "action": "View"
+      },
+      "reported": "Reported"
+    },
+    "issue": {
+      "label": "Create New Issue",
+      "description": "Create new issues and assign it to different members in your teams!",
+      "noApps": {
+        "description": "Please create an app first!",
+        "link": "Create App"
+      },
+      "form": {
+        "issue": "Issue",
+        "placeholder": "Insert issue text here ...",
+        "select": "Select app ...",
+        "action": "Create Issue"
+      }
+    },
+    "assign": {
+      "label": "Assign Issue",
+      "action": "Assign",
+      "me": "Yourself"
+    }
+  }
 }
