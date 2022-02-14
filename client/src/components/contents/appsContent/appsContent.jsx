@@ -7,15 +7,15 @@ import AppElement from "./appElement/appElement";
 import NoApps from "./noApps/noApps";
 import Button from "../../common/button/button";
 import { BiPlus } from "react-icons/bi";
+import CreateAppForm from "./createAppForm/createAppForm";
 
 import "./appsContent.css";
-import CreateAppForm from "./createAppForm/createAppForm";
 
 const AppsContent = () => {
   const { token } = useContext(UserContext);
   const setPopup = useContext(PopupContext);
   const [apps, setApps] = useState([]);
-  const [loading, setLoading] = useState({ apps: true, delete: {} });
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     appsService.setToken(token);
@@ -29,24 +29,13 @@ const AppsContent = () => {
       } catch (ex) {
         console.log(ex);
       }
-      setLoading({ ...loading, apps: false });
+      setLoading(false);
     };
 
     fetchApps();
   }, [token]);
 
-  const handleDelete = async (appId) => {
-    setLoading({ ...loading, delete: { [appId]: true } });
-    try {
-      await appsService.deleteApp(appId);
-      setLoading({ ...loading, delete: false });
-      setApps(apps.filter((app) => app._id != appId));
-    } catch (ex) {
-      setLoading({ ...loading, delete: {} });
-    }
-  };
-
-  if (loading.apps) return <DashboardLoader />;
+  if (loading) return <DashboardLoader />;
   return (
     <>
       {apps.length ? (
@@ -75,8 +64,8 @@ const AppsContent = () => {
               <AppElement
                 key={app._id}
                 app={app}
-                loading={loading.delete[app._id]}
-                onDelete={handleDelete}
+                apps={apps}
+                setApps={setApps}
               />
             ))}
           </div>

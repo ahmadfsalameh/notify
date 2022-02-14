@@ -1,16 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../../../common/button/button";
 import dateFromObjectId from "../../../../utils/dateFromObjectId";
 import TimeAgo from "timeago-react";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import Group from "../../../common/group/group";
 import InfoGroup from "../../../common/infoGroup/infoGroup";
+import appsService from "../../../../services/appsService";
 
 import "./appElement.css";
 
-const AppElement = ({ app, loading, onDelete }) => {
+const AppElement = ({ app, apps, setApps }) => {
+  const [loading, setLoading] = useState(false);
+
   const { _id: appId, name, apiKey, team, bugs } = app;
   const closedBugs = bugs.filter((bug) => bug.status == "closed").length;
+
+  const deleteApp = async () => {
+    setLoading(true);
+    try {
+      await appsService.deleteApp(appId);
+      setLoading(false);
+      setApps(apps.filter((a) => a._id != appId));
+    } catch (ex) {
+      setLoading(false);
+    }
+  };
+
   return (
     <Group
       label={name}
@@ -21,7 +36,7 @@ const AppElement = ({ app, loading, onDelete }) => {
             label={<RiDeleteBin5Line />}
             className="btn-action btn-icon"
             LoadingSpinnerClass="loading-spinner-icon"
-            onClick={() => onDelete(appId)}
+            onClick={deleteApp}
             loading={loading}
           />
         </>
