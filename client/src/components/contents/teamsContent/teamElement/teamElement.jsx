@@ -14,21 +14,23 @@ const TeamElement = ({ user, team, setPopup }) => {
       label={team.name}
       prefix="Team"
       actions={
-        <>
-          <Button
-            label="Invite member"
-            className="btn-action"
-            LoadingSpinnerClass="loading-spinner-icon"
-            onClick={() =>
-              setPopup([<InviteMemberForm team={team} />, "Invite Member "])
-            }
-          />
-          <Button
-            label={<RiDeleteBin5Line />}
-            className="btn-action btn-icon"
-            LoadingSpinnerClass="loading-spinner-icon"
-          />
-        </>
+        team.owner._id == user._id && (
+          <>
+            <Button
+              label="Invite member"
+              className="btn-action"
+              LoadingSpinnerClass="loading-spinner-icon"
+              onClick={() =>
+                setPopup([<InviteMemberForm team={team} />, "Invite Member "])
+              }
+            />
+            <Button
+              label={<RiDeleteBin5Line />}
+              className="btn-action btn-icon"
+              LoadingSpinnerClass="loading-spinner-icon"
+            />
+          </>
+        )
       }
       content={
         <>
