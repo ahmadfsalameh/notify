@@ -5,7 +5,7 @@ import teamsService from "../../../../services/teamsService";
 
 import "./assignIssue.css";
 
-const AssignIssue = ({ bugs, bugId, setBugs, setPopup }) => {
+const AssignIssue = ({ bugs, bug, setBugs, setPopup }) => {
   const { user, token } = useContext(UserContext);
 
   const [teams, setTeams] = useState([]);
@@ -23,7 +23,7 @@ const AssignIssue = ({ bugs, bugId, setBugs, setPopup }) => {
 
   const props = {
     token: token,
-    bugId: bugId,
+    bugId: bug._id,
     bugs: bugs,
     setBugs: setBugs,
     setPopup: setPopup,
