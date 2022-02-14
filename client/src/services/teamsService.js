@@ -12,9 +12,14 @@ const getMembers = async (id) => {
   return await http.get(`${apiEndpoint}/teams/members/${id}`);
 };
 
+const deleteTeam = async (id) => {
+  return await http.get(`${apiEndpoint}/teams/${id}`);
+};
+
 export default {
   setToken,
   getTeams,
   createTeam,
   getMembers,
+  deleteTeam,
 };
