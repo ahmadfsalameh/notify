@@ -12,13 +12,13 @@ const AssignIssue = ({ bugs, bug, setBugs, setPopup }) => {
 
   useEffect(() => {
     teamsService.setToken(token);
-    const getTeams = async () => {
+    const getMembers = async () => {
       try {
-        const { data } = await teamsService.getTeams();
+        const { data } = await teamsService.getMembers(bug.app);
         setTeams(data);
       } catch (ex) {}
     };
-    getTeams();
+    getMembers();
   }, [token]);
 
   const props = {
