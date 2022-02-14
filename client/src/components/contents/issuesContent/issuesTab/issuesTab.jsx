@@ -9,7 +9,7 @@ const IssuesTab = ({ bugs, label, type, isTask, setPopup }) => {
     <div className={"issues-tab"} data-type={type}>
       <h6>{label}</h6>
       <Droppable
-        droppableId={label}
+        droppableId={type}
         direction="vertical"
         isCombineEnabled={false}
         className="droppable-container"
