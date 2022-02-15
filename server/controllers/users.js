@@ -38,6 +38,20 @@ export const createUser = async (req, res) => {
   res.header(configs.authHeaderName, token).status(201).send();
 };
 
+export const changeUserName = async (req, res) => {
+  const { id } = req.user;
+  const name = req.body.name;
+
+  await User.updateOne(
+    { _id: id },
+    {
+      name: name,
+    }
+  );
+
+  res.send();
+};
+
 const validate = (data) => {
   const { error } = validationSchema.validate(data);
   return error;
