@@ -6,6 +6,7 @@ import Input from "../../../common/input/input";
 import { BiGroup } from "react-icons/bi";
 import Select from "react-select";
 import teamsService from "../../../../services/teamsService";
+import { createTeamSchema } from "../../../../validation/team";
 import text from "../../../../constants/text.json";
 
 const CreateTeamForm = ({ apps, token, teams, setTeams, setPopup }) => {
@@ -14,7 +15,7 @@ const CreateTeamForm = ({ apps, token, teams, setTeams, setPopup }) => {
       name: "",
       appId: "",
     },
-    null
+    createTeamSchema
   );
   const [loading, setLoading] = useState(false);
 
@@ -58,6 +59,7 @@ const CreateTeamForm = ({ apps, token, teams, setTeams, setPopup }) => {
           onChange={(e) => setData({ ...data, appId: e.value }, true)}
           placeholder={createText.form.select}
         />
+        {errors.appId && <p>{errors.appId}</p>}
         <Button
           label={createText.form.action}
           className="btn-action btn-primary"
