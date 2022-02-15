@@ -87,5 +87,6 @@ const validateCreateApp = (data) => {
 
 const validateApiKey = (data) => {
   const { error } = apiKeySchema.validate(data);
+  console.log(error);
   return error;
 };
