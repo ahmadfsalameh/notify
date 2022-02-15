@@ -5,6 +5,7 @@ import { PopupContext } from "../../../context/popupContext";
 import Button from "../../common/button/button";
 import text from "../../../constants/text.json";
 import ChangeNameForm from "./changeNameForm/changeNameForm";
+import ChangePasswordForm from "./changePasswordForm/changePasswordForm";
 import userService from "../../../services/userService";
 import auth from "../../../services/authService";
 
@@ -64,7 +65,21 @@ const SettingsContent = () => {
               <span>{settings.password}</span>
               ••••••••
             </p>
-            <Button label={settings.change} className="btn-action" />
+            <Button
+              label={settings.change}
+              className="btn-action"
+              onClick={() =>
+                setPopup([
+                  <ChangePasswordForm
+                    token={token}
+                    user={user}
+                    setUser={setUser}
+                    setPopup={setPopup}
+                  />,
+                  settings.changePassword.label,
+                ])
+              }
+            />
           </li>
           <li>
             <p>
