@@ -52,6 +52,13 @@ export const changeUserName = async (req, res) => {
   res.send();
 };
 
+export const deleteUser = async (req, res) => {
+  const { id } = req.user;
+
+  await User.deleteOne({ _id: id });
+  res.send();
+};
+
 const validate = (data) => {
   const { error } = validationSchema.validate(data);
   return error;
