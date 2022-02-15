@@ -8,7 +8,7 @@ import "./settingsContent.css";
 import ChangeNameForm from "./changeNameForm/changeNameForm";
 
 const SettingsContent = () => {
-  const { user, token } = useContext(UserContext);
+  const { user, token, setUser } = useContext(UserContext);
   const setPopup = useContext(PopupContext);
 
   const { settings } = text;
@@ -29,7 +29,12 @@ const SettingsContent = () => {
               className="btn-action"
               onClick={() =>
                 setPopup([
-                  <ChangeNameForm token={token} setPopup={setPopup} />,
+                  <ChangeNameForm
+                    token={token}
+                    user={user}
+                    setUser={setUser}
+                    setPopup={setPopup}
+                  />,
                   settings.changeName.label,
                 ])
               }
