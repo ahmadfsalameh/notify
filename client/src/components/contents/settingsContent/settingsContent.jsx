@@ -8,7 +8,7 @@ import "./settingsContent.css";
 import ChangeNameForm from "./changeNameForm/changeNameForm";
 
 const SettingsContent = () => {
-  const { user } = useContext(UserContext);
+  const { user, token } = useContext(UserContext);
   const setPopup = useContext(PopupContext);
 
   const { settings } = text;
