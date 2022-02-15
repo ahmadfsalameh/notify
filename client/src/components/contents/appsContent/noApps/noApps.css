@@ -26,3 +26,6 @@ div.no-apps-content p {
   margin-top: 0.8rem;
   line-height: 1.7;
 }
+div.no-apps div.create-content {
+  padding: 0;
+}
