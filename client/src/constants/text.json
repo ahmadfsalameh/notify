@@ -136,6 +136,14 @@
     "change": "Change",
     "delete": "Delete",
     "account": "Account",
-    "danger": "Danger Zone"
+    "danger": "Danger Zone",
+    "changeName": {
+      "label": "Change your name",
+      "description": "Don't worry there is not limit you can always change your name back.",
+      "form": {
+        "name": "New Name",
+        "action": "Change your name"
+      }
+    }
   }
 }
