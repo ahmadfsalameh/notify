@@ -75,7 +75,7 @@ const TeamElement = ({ user, token, team, teams, setTeams, setPopup }) => {
           <InfoGroup
             label={teamsText.app}
             waves={true}
-            content={team.app.name}
+            content={team.app?.name}
           />
         </>
       }
