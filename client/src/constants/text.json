@@ -144,6 +144,15 @@
         "name": "New Name",
         "action": "Change your name"
       }
+    },
+    "changePassword": {
+      "label": "Change your password",
+      "description": "You need your old password in order to be able to change your password.",
+      "form": {
+        "password": "Password",
+        "newPassword": "New Password",
+        "action": "Change Password"
+      }
     }
   }
 }
