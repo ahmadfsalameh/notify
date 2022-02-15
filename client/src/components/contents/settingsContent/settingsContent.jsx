@@ -6,6 +6,7 @@ import Button from "../../common/button/button";
 import text from "../../../constants/text.json";
 import ChangeNameForm from "./changeNameForm/changeNameForm";
 import userService from "../../../services/userService";
+import auth from "../../../services/authService";
 
 import "./settingsContent.css";
 
@@ -26,6 +27,7 @@ const SettingsContent = () => {
     userService.setToken(token);
     try {
       await userService.deleteUser();
+      auth.deleteToken();
       setToken(null);
       navigate("/");
     } catch (ex) {}
