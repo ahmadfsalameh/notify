@@ -5,6 +5,7 @@ import Button from "../../../../common/button/button";
 import useForm from "../../../../../hooks/useForm";
 import { useState } from "react";
 import invitesService from "../../../../../services/invitesService";
+import { inviteMemberSchema } from "../../../../../validation/team";
 import text from "../../../../../constants/text.json";
 
 const InviteMemberForm = ({ team }) => {
@@ -12,7 +13,7 @@ const InviteMemberForm = ({ team }) => {
     {
       email: "",
     },
-    null
+    inviteMemberSchema
   );
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -56,6 +57,7 @@ const InviteMemberForm = ({ team }) => {
           icon={<BiAt />}
           value={data.email}
           onChange={setData}
+          error={errors.email}
         />
         <Button
           label={inviteText.form.action}
