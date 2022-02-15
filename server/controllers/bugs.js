@@ -28,8 +28,14 @@ export const getAppBugsById = async (appId) => {
 };
 
 export const createBug = async (req, res) => {
-  const bugData = req.body.bug;
+  const bugBody = req.body.bug;
   const apiKey = req.body.apiKey;
+
+  if (!bugBody) return res.status(400).send();
+
+  const bugData = _.pick(bugBody, ["message", "error", "ip", "userAgent"]);
+
+  if (validate(bugData)) return res.status(400).send();
 
   const app = await getAppByApiKey(apiKey);
   if (!app) return res.status(400).send();
@@ -161,4 +167,9 @@ const changeAffectedBugsIndexes = async (bug, status, index) => {
       $inc: { index: 1 },
     }
   );
+};
+
+const validate = (data) => {
+  const { error } = {};
+  return error;
 };
