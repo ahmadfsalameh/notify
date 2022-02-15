@@ -2,7 +2,7 @@ div.create-content {
   width: 100%;
   padding: 1rem;
 }
-div.create-content p:not(p.input-error-msg) {
+div.create-content p:not(p.input-error-msg):not(p.textarea-error-msg) {
   font-size: 1rem;
   color: var(--primary-black);
   line-height: 1.7;
