@@ -52,6 +52,23 @@ export const editUser = async (req, res) => {
   res.send();
 };
 
+export const changePassword = async (req, res) => {
+  const { id } = req.user;
+  const passwords = _.pick(req.body, ["password", "newPassword"]);
+
+  const user = await User.findById(id);
+
+  const isValid = await bcrypt.compare(passwords.password, user.password);
+  if (!isValid) return res.status(400).send();
+
+  const salt = await bcrypt.genSalt(10);
+  user.password = await bcrypt.hash(passwords.newPassword, salt);
+
+  await user.save();
+
+  res.send();
+};
+
 export const deleteUser = async (req, res) => {
   const { id } = req.user;
 
