@@ -21,10 +21,15 @@ const deleteUser = async () => {
   return await http.delete(`${apiEndpoint}/users/me`);
 };
 
+const changePassword = async (data) => {
+  return await http.patch(`${apiEndpoint}/users/me/password`, data);
+};
+
 export default {
   setToken,
   register,
   getCurrentUser,
   changeUserName,
   deleteUser,
+  changePassword,
 };
