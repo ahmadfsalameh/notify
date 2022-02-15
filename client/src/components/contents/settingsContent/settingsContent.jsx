@@ -28,7 +28,10 @@ const SettingsContent = () => {
               label={settings.change}
               className="btn-action"
               onClick={() =>
-                setPopup([<ChangeNameForm />, settings.changeName.label])
+                setPopup([
+                  <ChangeNameForm token={token} setPopup={setPopup} />,
+                  settings.changeName.label,
+                ])
               }
             />
           </li>
