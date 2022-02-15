@@ -66,3 +66,6 @@ div.issue-details table td {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+div.issue-details table td button {
+  width: 100%;
+}
