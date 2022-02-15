@@ -20,21 +20,21 @@ const HelpContent = () => {
         </p>
         <pre>
           {`<script>
-    window.onerror = function (msg, url, lineNo, columnNo, err) {
-      fetch("http://127.0.0.1:3001/api/bugs", {
-        method: "POST",
-        body: JSON.stringify({
-          apiKey: "YOUR_API_KEY",
-          bug: {
-            message: msg,
-            error: err,
-          },
-        }),
-        headers: {
-          "content-type": "application/json",
+  window.onerror = function (msg, url, lineNo, columnNo, err) {
+    fetch("http://127.0.0.1:3001/api/bugs", {
+      method: "POST",
+      body: JSON.stringify({
+        apiKey: "a22b9282ec0665b2ebb99df6caceb30240dd8a88",
+        bug: {
+          message: msg,
+          error: JSON.stringify(err.stack),
         },
-      });
-    };
+      }),
+      headers: {
+        "content-type": "application/json",
+      },
+    });
+  };
 </script>`}
         </pre>
       </div>
