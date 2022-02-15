@@ -129,5 +129,13 @@
       "action": "Assign",
       "me": "Yourself"
     }
+  },
+  "settings": {
+    "name": "Name",
+    "password": "Password",
+    "change": "Change",
+    "delete": "Delete",
+    "account": "Account",
+    "danger": "Danger Zone"
   }
 }
