@@ -5,6 +5,7 @@ import Button from "../../../common/button/button";
 import Textarea from "../../../common/textarea/textarea";
 import Select from "react-select";
 import bugsService from "../../../../services/bugsService";
+import { createIssueSchema } from "../../../../validation/issue";
 import text from "../../../../constants/text.json";
 
 const CreateIssueForm = ({ apps, bugs, setBugs, setPopup }) => {
@@ -20,7 +21,7 @@ const CreateIssueForm = ({ apps, bugs, setBugs, setPopup }) => {
       message: "",
       apiKey: "",
     },
-    null
+    createIssueSchema
   );
   const [loading, setLoading] = useState(false);
 
@@ -60,11 +61,13 @@ const CreateIssueForm = ({ apps, bugs, setBugs, setPopup }) => {
           placeholder={issuesText.issue.form.placeholder}
           label={issuesText.issue.form.issue}
           onChange={setData}
+          error={errors.message}
         />
         <Select
           options={options}
           onChange={(e) => setData({ ...data, apiKey: e.value }, true)}
           placeholder={issuesText.issue.form.select}
+          className={errors.apiKey ? "reactselect-invalid" : ""}
         />
         <Button
           label={issuesText.issue.form.action}
