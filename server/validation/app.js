@@ -5,5 +5,5 @@ export const createAppSchema = Joi.object({
 });
 
 export const apiKeySchema = Joi.object({
-  name: Joi.string().required().max(200).label("Api key"),
+  apiKey: Joi.string().required().max(200).label("Api key"),
 });
