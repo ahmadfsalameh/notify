@@ -2,10 +2,13 @@ import Invite from "../models/invite.js";
 import { getTeamById } from "./teams.js";
 import randomString from "../helpers/randomString.js";
 import { addUserToTeam } from "./teams.js";
+import { getInviteSchema, sendInviteSchema } from "../validation/invite.js";
 
 export const sendInvite = async (req, res) => {
   const { id } = req.user;
   const { teamId, email } = req.body;
+
+  if (validateInvite({ email })) return res.status(400).send();
 
   const team = await getTeamById(teamId);
   if (!team) return res.status(400).send();
@@ -28,6 +31,8 @@ export const sendInvite = async (req, res) => {
 export const getInvite = async (req, res) => {
   const { link } = req.params;
 
+  if (validateInviteLink({ link })) return res.status(400).send();
+
   const invite = await Invite.findOne({ link: link, valid: true })
     .populate("team", ["name"])
     .populate("sender", ["name", "avatar"]);
@@ -41,6 +46,8 @@ export const acceptInvite = async (req, res) => {
   const { id } = req.user;
   const { link } = req.params;
 
+  if (validateInviteLink({ link })) return res.status(400).send();
+
   const invite = await Invite.findOne({ link: link, valid: true });
   if (!invite) return res.status(404).send();
 
@@ -50,4 +57,14 @@ export const acceptInvite = async (req, res) => {
   await invite.save();
 
   res.send(201);
+};
+
+const validateInvite = (data) => {
+  const { error } = sendInviteSchema.validate(data);
+  return error;
+};
+
+const validateInviteLink = (data) => {
+  const { error } = getInviteSchema.validate(data);
+  return error;
 };
