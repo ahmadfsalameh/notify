@@ -14,7 +14,7 @@ const getCurrentUser = async () => {
 };
 
 const changeUserName = async (data) => {
-  return await http.patch(`${apiEndpoint}/users/me/name`, data);
+  return await http.patch(`${apiEndpoint}/users/me`, data);
 };
 
 export default {
