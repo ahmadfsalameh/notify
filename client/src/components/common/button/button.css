@@ -48,6 +48,7 @@ button.btn-action:hover {
 button.btn-danger {
   background-color: #e91e1e;
   color: #fff !important;
+  border: 0;
 }
 button.btn-primary {
   background-color: var(--primary-blue);
