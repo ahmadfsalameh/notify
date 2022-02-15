@@ -5,8 +5,7 @@ const schema = mongoose.Schema({
     type: String,
     trim: true,
     required: true,
-    minLength: 5,
-    maxLength: 50,
+    maxLength: 100,
   },
   apiKey: {
     type: String,
