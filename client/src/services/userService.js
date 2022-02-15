@@ -17,9 +17,14 @@ const changeUserName = async (data) => {
   return await http.patch(`${apiEndpoint}/users/me`, data);
 };
 
+const deleteUser = async () => {
+  return await http.delete(`${apiEndpoint}/users/me`);
+};
+
 export default {
   setToken,
   register,
   getCurrentUser,
   changeUserName,
+  deleteUser,
 };

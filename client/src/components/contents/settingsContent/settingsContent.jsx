@@ -1,19 +1,36 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../../context/userContext";
 import { PopupContext } from "../../../context/popupContext";
 import Button from "../../common/button/button";
 import text from "../../../constants/text.json";
+import ChangeNameForm from "./changeNameForm/changeNameForm";
+import userService from "../../../services/userService";
 
 import "./settingsContent.css";
-import ChangeNameForm from "./changeNameForm/changeNameForm";
 
 const SettingsContent = () => {
-  const { user, token, setUser } = useContext(UserContext);
+  const { user, token, setToken, setUser } = useContext(UserContext);
   const setPopup = useContext(PopupContext);
+
+  const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   const { settings } = text;
 
   if (!user) return null;
+
+  const deleteUser = async () => {
+    setLoading(true);
+    userService.setToken(token);
+    try {
+      await userService.deleteUser();
+      setToken(null);
+      navigate("/");
+    } catch (ex) {}
+    setLoading(false);
+  };
 
   return (
     <section className="settings">
@@ -52,7 +69,12 @@ const SettingsContent = () => {
               <span>{settings.account}</span>
               {settings.danger}
             </p>
-            <Button label={settings.delete} className="btn-action btn-danger" />
+            <Button
+              label={settings.delete}
+              className="btn-action btn-danger"
+              loading={loading}
+              onClick={deleteUser}
+            />
           </li>
         </ul>
       </div>
