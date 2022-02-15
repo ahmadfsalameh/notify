@@ -1,0 +1,19 @@
+div.error-stack {
+  width: 100%;
+  padding: 1rem;
+}
+div.error-stack p {
+  font-size: 1rem;
+  color: var(--primary-black);
+}
+div.error-stack pre {
+  width: 100%;
+  border-radius: var(--border-radius);
+  background-color: var(--primary-background-gray);
+  padding: 1rem 1.5rem;
+  font-family: monospace, "Montserrat", sans-serif;
+  margin-top: 1.5rem;
+  line-height: 1.7;
+  color: var(--primary-error-red);
+  font-size: 0.9rem;
+}
