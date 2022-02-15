@@ -13,8 +13,13 @@ const getCurrentUser = async () => {
   }
 };
 
+const changeUserName = async (data) => {
+  return await http.patch(`${apiEndpoint}/users/me/name`, data);
+};
+
 export default {
   setToken,
   register,
   getCurrentUser,
+  changeUserName,
 };
