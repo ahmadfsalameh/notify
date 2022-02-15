@@ -7,8 +7,6 @@ import { getAppByApiKey } from "./apps.js";
 export const getBugs = async (req, res) => {
   const { id } = req.user;
 
-  if (!mongoose.Types.ObjectId(id)) return res.send(400);
-
   const appBugs = await Bug.find({ owner: id })
     .populate("assignee", "name")
     .sort({ _id: -1 });
