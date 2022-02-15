@@ -2,6 +2,7 @@ import Team from "../models/team.js";
 import _ from "lodash";
 import mongoose from "mongoose";
 import { getAppById } from "./apps.js";
+import { createTeamSchema } from "../validation/team.js";
 
 export const getTeams = async (req, res) => {
   const { id } = req.user;
@@ -34,6 +35,8 @@ export const getMembers = async (req, res) => {
 export const createTeam = async (req, res) => {
   const { id } = req.user;
   const teamData = _.pick(req.body, ["name", "appId"]);
+
+  if (validate({ name: teamData.name })) return res.status(400).send();
 
   const app = await getAppById(teamData.appId);
 
@@ -95,4 +98,9 @@ export const addUserToTeam = async (userId, teamId) => {
 
   team.members.push(userId);
   await team.save();
+};
+
+const validate = (data) => {
+  const { error } = createTeamSchema.validate(data);
+  return error;
 };
