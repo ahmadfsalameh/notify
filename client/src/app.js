@@ -7,6 +7,7 @@ import Apps from "./layouts/apps";
 import Issues from "./layouts/issues";
 import Teams from "./layouts/teams";
 import Tasks from "./layouts/tasks";
+import Settings from "./layouts/settings/settings";
 import Invites from "./layouts/invites";
 import AcceptInvite from "./components/acceptInvite/acceptInvite";
 import auth from "./services/authService";
@@ -37,6 +38,10 @@ const App = () => {
         />
         <Route path="/teams" element={<ProtectedRoute element={<Teams />} />} />
         <Route path="/tasks" element={<ProtectedRoute element={<Tasks />} />} />
+        <Route
+          path="/settings"
+          element={<ProtectedRoute element={<Settings />} />}
+        />
         <Route path="/invites/:id" element={<Invites />} />
         <Route
           path="/invites/accept/:id"
