@@ -58,8 +58,8 @@ const CreateTeamForm = ({ apps, token, teams, setTeams, setPopup }) => {
           options={apps}
           onChange={(e) => setData({ ...data, appId: e.value }, true)}
           placeholder={createText.form.select}
+          className={errors.appId ? "reactselect-invalid" : ""}
         />
-        {errors.appId && <p>{errors.appId}</p>}
         <Button
           label={createText.form.action}
           className="btn-action btn-primary"

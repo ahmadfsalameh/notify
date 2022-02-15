@@ -48,3 +48,16 @@ div.create-content form button {
   z-index: 10 !important;
   position: relative;
 }
+.reactselect-invalid {
+  border: 1px solid var(--primary-error-red) !important;
+  border-radius: var(--border-radius);
+}
+.reactselect-invalid #react-select-3-placeholder {
+  color: var(--primary-error-red) !important;
+}
+.reactselect-invalid .css-1s2u09g-control {
+  border-color: transparent !important;
+}
+.reactselect-invalid .css-1pahdxg-control {
+  border-color: transparent !important;
+}
