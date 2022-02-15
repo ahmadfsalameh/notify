@@ -47,6 +47,9 @@ div.textarea-container textarea.textarea-active {
 div.textarea-container textarea.textarea-error {
   border-color: var(--primary-error-red);
 }
+div.textarea-container textarea.textarea-error ~ label {
+  color: var(--primary-error-red) !important;
+}
 p.textarea-error-msg {
   margin-top: 0.5rem;
   font-size: 1rem;
