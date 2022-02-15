@@ -4,6 +4,7 @@ import bcrypt from "bcrypt";
 import configs from "../configs.js";
 import { createAvatar } from "@dicebear/avatars";
 import * as style from "@dicebear/avatars-bottts-sprites";
+import validationSchema from "../validation/register.js";
 
 export const getUser = async (req, res) => {
   const { id } = req.user;
@@ -15,6 +16,9 @@ export const getUser = async (req, res) => {
 
 export const createUser = async (req, res) => {
   let user = _.pick(req.body, ["name", "email", "password"]);
+
+  if (validate(user)) return res.status(400).send();
+
   if (await User.findOne({ email: user.email })) return res.status(400).send();
 
   user = new User(user);
@@ -32,4 +36,9 @@ export const createUser = async (req, res) => {
   const token = user.generateAuthToken();
 
   res.header(configs.authHeaderName, token).status(201).send();
+};
+
+const validate = (data) => {
+  const { error } = validationSchema.validate(data);
+  return error;
 };
