@@ -8,6 +8,7 @@ import Issues from "./layouts/issues";
 import Teams from "./layouts/teams";
 import Tasks from "./layouts/tasks";
 import Settings from "./layouts/settings/settings";
+import Help from "./layouts/help/help";
 import Invites from "./layouts/invites";
 import AcceptInvite from "./components/acceptInvite/acceptInvite";
 import auth from "./services/authService";
@@ -42,6 +43,7 @@ const App = () => {
           path="/settings"
           element={<ProtectedRoute element={<Settings />} />}
         />
+        <Route path="/help" element={<ProtectedRoute element={<Help />} />} />
         <Route path="/invites/:id" element={<Invites />} />
         <Route
           path="/invites/accept/:id"
