@@ -4,6 +4,7 @@ import appsService from "../../../../services/appsService";
 import Input from "../../../common/input/input";
 import Button from "../../../common/button/button";
 import { BiCog } from "react-icons/bi";
+import { createAppSchema } from "../../../../validation/app";
 import text from "../../../../constants/text.json";
 
 const CreateAppForm = ({ apps, setApps, setPopup }) => {
@@ -11,7 +12,7 @@ const CreateAppForm = ({ apps, setApps, setPopup }) => {
     {
       name: "",
     },
-    null
+    createAppSchema
   );
   const [loading, setLoading] = useState(false);
   const [mounted, setMounted] = useState(true);
