@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import { getTeamByAppId } from "./teams.js";
 import { getAppBugsById } from "./bugs.js";
 import randomString from "../helpers/randomString.js";
+import { createAppSchema, apiKeySchema } from "../validation/app.js";
 
 export const getApps = async (req, res) => {
   const { id } = req.user;
@@ -36,6 +37,8 @@ export const getAppsWithBugs = async (req, res) => {
 export const createApp = async (req, res) => {
   const { id } = req.user;
   const name = req.body.name;
+
+  if (validateCreateApp({ name })) return res.status(400).send();
 
   const apiKey = randomString(20);
   const owner = id;
@@ -71,6 +74,18 @@ export const getAppById = async (appId) => {
 };
 
 export const getAppByApiKey = async (apiKey) => {
+  if (validateApiKey({ apiKey })) return null;
+
   const app = await App.findOne({ apiKey: apiKey });
   return app ? app : null;
+};
+
+const validateCreateApp = (data) => {
+  const { error } = createAppSchema.validate(data);
+  return error;
+};
+
+const validateApiKey = (data) => {
+  const { error } = apiKeySchema.validate(data);
+  return error;
 };
