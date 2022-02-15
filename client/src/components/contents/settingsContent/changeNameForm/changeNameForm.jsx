@@ -3,6 +3,7 @@ import useForm from "../../../../hooks/useForm";
 import Input from "../../../common/input/input";
 import { BiUser } from "react-icons/bi";
 import Button from "../../../common/button/button";
+import validationSchema from "../../../../validation/name";
 import text from "../../../../constants/text.json";
 
 const ChangeNameForm = ({ token }) => {
@@ -10,7 +11,7 @@ const ChangeNameForm = ({ token }) => {
     {
       name: "",
     },
-    null
+    validationSchema
   );
 
   const { changeName } = text.settings;
@@ -25,6 +26,7 @@ const ChangeNameForm = ({ token }) => {
           label={changeName.form.name}
           onChange={setData}
           icon={<BiUser />}
+          error={errors.name}
         />
         <Button
           label={changeName.form.action}
