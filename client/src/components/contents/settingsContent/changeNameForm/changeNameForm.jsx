@@ -7,7 +7,7 @@ import validationSchema from "../../../../validation/name";
 import userService from "../../../../services/userService";
 import text from "../../../../constants/text.json";
 
-const ChangeNameForm = ({ token, setPopup }) => {
+const ChangeNameForm = ({ token, user, setUser, setPopup }) => {
   const [data, errors, setData, setErrors, handleSubmit] = useForm(
     {
       name: "",
@@ -24,6 +24,7 @@ const ChangeNameForm = ({ token, setPopup }) => {
     setLoading(true);
     try {
       await userService.changeUserName(data);
+      setUser({ ...user, ...data });
       setPopup(null);
     } catch (ex) {
       setLoading(false);
