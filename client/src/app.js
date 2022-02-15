@@ -28,7 +28,7 @@ const App = () => {
   }, [token]);
 
   return (
-    <UserContext.Provider value={{ token, user, setToken }}>
+    <UserContext.Provider value={{ token, user, setToken, setUser }}>
       <Routes>
         <Route path="/" element={<ProtectedRoute element={<Dashboard />} />} />
         <Route path="/apps" element={<ProtectedRoute element={<Apps />} />} />
