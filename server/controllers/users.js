@@ -38,7 +38,7 @@ export const createUser = async (req, res) => {
   res.header(configs.authHeaderName, token).status(201).send();
 };
 
-export const changeUserName = async (req, res) => {
+export const editUser = async (req, res) => {
   const { id } = req.user;
   const name = req.body.name;
 
