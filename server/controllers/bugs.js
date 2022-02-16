@@ -3,6 +3,7 @@ import _ from "lodash";
 import mongoose from "mongoose";
 import { getTeamByAppId } from "./teams.js";
 import { getAppByApiKey } from "./apps.js";
+import { createNotification } from "./notifications.js";
 
 export const getBugs = async (req, res) => {
   const { id } = req.user;
@@ -84,6 +85,8 @@ export const assignBugToUser = async (req, res) => {
       $inc: { index: 1 },
     }
   );
+
+  createNotification("new_assigned_task", { user: id }, assignee);
 
   await bug.save();
 
