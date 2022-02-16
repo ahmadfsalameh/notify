@@ -3,6 +3,7 @@ import { getTeamById } from "./teams.js";
 import randomString from "../helpers/randomString.js";
 import { addUserToTeam } from "./teams.js";
 import { getInviteSchema, sendInviteSchema } from "../validation/invite.js";
+import sendEmail from "../helpers/email.js";
 
 export const sendInvite = async (req, res) => {
   const { id } = req.user;
@@ -10,7 +11,7 @@ export const sendInvite = async (req, res) => {
 
   if (validateInvite({ email })) return res.status(400).send();
 
-  const team = await getTeamById(teamId);
+  const team = await getTeamById(teamId).populate("owner", "name");
   if (!team) return res.status(400).send();
 
   if (!team.owner.equals(id)) return res.status(403).send();
@@ -22,6 +23,8 @@ export const sendInvite = async (req, res) => {
     team: team._id,
     link: link,
   });
+
+  sendEmail(email, team.owner.name, team.name, link);
 
   await invite.save();
 
