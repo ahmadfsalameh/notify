@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { PopupContext } from "../../context/popupContext";
-import Popup from "./popup/popup";
+import Popup from "../common/popup/popup";
 import Header from "../../components/header/header";
 import Aside from "../../components/aside/aside";
 
