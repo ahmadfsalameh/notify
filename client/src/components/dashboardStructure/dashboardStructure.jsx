@@ -14,8 +14,8 @@ const DashboardStructure = ({ content }) => {
       <article className="dashboard">
         <Aside />
         <main>
-          <Header />
           <PopupContext.Provider value={setPopup}>
+            <Header />
             <div className="content">{content}</div>
           </PopupContext.Provider>
         </main>
