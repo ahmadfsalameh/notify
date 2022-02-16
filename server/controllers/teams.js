@@ -84,7 +84,7 @@ export const getTeamByAppId = async (appId) => {
 export const getTeamById = async (teamId) => {
   if (!mongoose.Types.ObjectId.isValid(teamId)) return null;
 
-  const team = await Team.findById(teamId);
+  const team = await Team.findById(teamId).populate("owner", "name");
   return team ? team : null;
 };
 

@@ -11,7 +11,7 @@ export const sendInvite = async (req, res) => {
 
   if (validateInvite({ email })) return res.status(400).send();
 
-  const team = await getTeamById(teamId).populate("owner", "name");
+  const team = await getTeamById(teamId);
   if (!team) return res.status(400).send();
 
   if (!team.owner.equals(id)) return res.status(403).send();
