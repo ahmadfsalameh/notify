@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../../common/button/button";
+import Button from "../button/button";
 import { IoClose } from "react-icons/io5";
 
 import "./popup.css";
