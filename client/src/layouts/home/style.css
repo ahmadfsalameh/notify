@@ -28,11 +28,10 @@ div.form-action-container {
   justify-content: center;
 }
 div.logo {
-  width: 65px;
-  height: 65px;
+  width: 75px;
+  height: 75px;
   border-radius: var(--border-radius);
   overflow: hidden;
-  background: var(--primary-blue);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,7 +50,7 @@ div.form-toggler {
   align-items: center;
 }
 div.form-toggler p {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--primary-black-light);
 }
 div.form-toggler button {
@@ -60,7 +59,6 @@ div.form-toggler button {
   cursor: pointer;
   outline: none;
   color: var(--primary-blue);
-  font-weight: 600;
   margin-left: 0.4rem;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
