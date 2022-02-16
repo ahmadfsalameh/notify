@@ -43,8 +43,6 @@ export const createTeam = async (req, res) => {
   if (!app) return res.status(400).send();
   if (!app.owner.equals(id)) return res.status(403).send();
 
-  if (await Team.findOne({ app: app._id })) return res.status(400).send();
-
   const team = new Team({ name: teamData.name, app: app.id, owner: id });
 
   await team.save();
