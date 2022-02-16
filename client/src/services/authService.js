@@ -1,5 +1,4 @@
 import http, { apiEndpoint } from "./httpService";
-import jwtDecode from "jwt-decode";
 
 const login = async (user) => {
   return await http.post(`${apiEndpoint}/auth`, user);
