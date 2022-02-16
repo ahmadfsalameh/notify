@@ -21,12 +21,21 @@ div.user-avatar {
   border: 1px solid var(--primary-border);
   padding: 0.2rem;
 }
+div.user-avatar:empty {
+  border: 0;
+  background-color: var(--primary-background-gray);
+}
 div.user-hi {
   width: 100%;
   font-size: 1rem;
   font-weight: 500;
   color: var(--primary-black);
   text-transform: capitalize;
+}
+p.user-name span {
+  background-color: var(--primary-background-gray);
+  border-radius: var(--border-radius);
+  color: transparent;
 }
 div.user-hi p:nth-child(2) {
   font-size: 0.8rem;

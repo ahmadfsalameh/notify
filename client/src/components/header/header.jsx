@@ -22,10 +22,12 @@ const Header = () => {
     <header>
       <div className="header-user">
         <div className="user-avatar">
-          <img src={user.avatar} />
+          {user.avatar && <img src={user.avatar} />}
         </div>
         <div className="user-hi">
-          <p>Hi, {user.name}</p>
+          <p className="user-name">
+            Hi, {user.name || <span>loading ...</span>}
+          </p>
           <p>Good {timeInDay()}!</p>
         </div>
       </div>
