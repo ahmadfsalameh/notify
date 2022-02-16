@@ -4,6 +4,7 @@ import Button from "../../../../common/button/button";
 import dateFromObjectId from "../../../../../utils/dateFromObjectId";
 import TimeAgo from "timeago-react";
 import AssignIssue from "../../assignIssue/assignIssue";
+import ErrorStack from "./errorStack/errorStack";
 import text from "../../../../../constants/text.json";
 
 import "./issue.css";
@@ -29,7 +30,13 @@ const Issue = ({ bug, isTask, setPopup }) => {
               <tr>
                 <th>{details.error.label}</th>
                 <td>
-                  <Button label={details.error.action} className="btn-action" />
+                  <Button
+                    label={details.error.action}
+                    className="btn-action"
+                    onClick={() =>
+                      setPopup([<ErrorStack bug={bug} />, "View Error Stack"])
+                    }
+                  />
                 </td>
               </tr>
             )}
