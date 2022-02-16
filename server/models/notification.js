@@ -1,14 +1,10 @@
 import mongoose from "mongoose";
 
-export const notificationsRequireSendingEmail = [
-  "new_assigned_task",
-  "new_bug",
-];
-
 export const notificationsTypes = [
   "new_team_member",
   "removed_team_member",
-  ...notificationsRequireSendingEmail,
+  "new_assigned_task",
+  "new_bug",
 ];
 
 const schema = mongoose.Schema({
@@ -43,7 +39,6 @@ const schema = mongoose.Schema({
         ref: "users",
         required: true,
       },
-      readAt: { type: Date, default: Date.now },
     },
   ],
 });

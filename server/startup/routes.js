@@ -6,6 +6,7 @@ import apps from "../routes/apps.js";
 import teams from "../routes/teams.js";
 import bugs from "../routes/bugs.js";
 import invites from "../routes/invites.js";
+import notifications from "../routes/notifications.js";
 import cors from "../middlewares/cors.js";
 import errors from "../middlewares/errors.js";
 
@@ -18,5 +19,6 @@ export default function (app) {
   app.use("/api/teams", teams);
   app.use("/api/bugs", bugs);
   app.use("/api/invites", invites);
+  app.use("/api/notifications", notifications);
   app.use(errors);
 }
