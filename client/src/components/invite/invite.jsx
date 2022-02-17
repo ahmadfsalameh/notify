@@ -31,7 +31,7 @@ const Invite = ({ id }) => {
               <img src={invite.sender.avatar} />
             </div>
             <p>
-              <span>{invite.sender.name}</span> has invited you to join
+              <span>{invite.sender.name}</span> has invited you to join{" "}
               {invite.team.name} team on Notify.
             </p>
             <Button
