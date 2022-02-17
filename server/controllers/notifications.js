@@ -18,6 +18,7 @@ export const getNotifications = async (req, res) => {
 
   const notifications = await Notification.find({ receiver: id })
     .populate("sender.user", ["name", "avatar"])
-    .populate("sender.app", "name");
+    .populate("sender.app", "name")
+    .sort({ _id: -1 });
   res.send(notifications);
 };
