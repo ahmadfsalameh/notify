@@ -20,3 +20,10 @@ div.apps-grid {
   grid-gap: 1rem;
   padding: 1rem 1.5rem;
 }
+@media screen and (max-width: 1000px) {
+  div.apps-grid {
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+  }
+}

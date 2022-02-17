@@ -31,14 +31,14 @@ div.create-content form button {
 .css-1s2u09g-control {
   border-radius: var(--border-radius) !important;
   border-color: var(--primary-border) !important;
-  height: 3rem;
+  height: 2.5rem;
   min-width: 250px !important;
   cursor: pointer !important;
 }
 .css-1pahdxg-control {
   border-color: var(--primary-blue) !important;
   border-radius: var(--border-radius) !important;
-  height: 3rem;
+  height: 2.5rem;
   box-shadow: none !important;
   min-width: 250px !important;
   cursor: pointer !important;
@@ -60,4 +60,12 @@ div.create-content form button {
 }
 .reactselect-invalid .css-1pahdxg-control {
   border-color: transparent !important;
+}
+@media screen and (max-width: 700px) {
+  .css-1s2u09g-control {
+    min-width: 200px !important;
+  }
+  .css-1pahdxg-control {
+    height: 2.5rem;
+  }
 }

@@ -94,3 +94,31 @@ p.copyright {
   font-size: 0.8rem;
   color: var(--primary-black-light);
 }
+@media screen and (max-width: 900px) {
+  aside {
+    overflow: hidden;
+  }
+  aside div.aside-logo {
+    padding: 1rem 0;
+    justify-content: center;
+  }
+  aside div.aside-logo p {
+    display: none;
+  }
+  aside nav ul li a {
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  aside nav ul li a p {
+    display: none;
+  }
+  aside nav ul li a svg {
+    margin-right: 0;
+    font-size: 1.4rem;
+  }
+  p.copyright {
+    display: none;
+  }
+}

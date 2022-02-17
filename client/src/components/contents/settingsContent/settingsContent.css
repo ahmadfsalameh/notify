@@ -40,3 +40,12 @@ div.settings-container ul li button {
   margin-left: auto;
   width: 5rem;
 }
+@media screen and (max-width: 1000px) {
+  div.settings-container {
+    width: 100%;
+    max-width: initial;
+    height: 100%;
+    border-radius: 0;
+    border: 0;
+  }
+}

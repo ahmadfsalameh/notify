@@ -68,3 +68,8 @@ div.header-nav ul li span.reminder {
   background-color: var(--primary-error-red);
   border: 1px solid var(--primary-black);
 }
+@media screen and (max-width: 500px) {
+  div.user-hi {
+    font-size: 0.8rem;
+  }
+}

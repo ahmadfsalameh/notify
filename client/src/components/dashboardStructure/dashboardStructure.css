@@ -25,3 +25,8 @@ div.content-container-main {
   padding: 1rem;
   position: relative;
 }
+@media screen and (max-width: 900px) {
+  article.dashboard {
+    grid-template-columns: 70px calc(100% - 60px);
+  }
+}

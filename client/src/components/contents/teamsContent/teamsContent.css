@@ -27,3 +27,10 @@ div.members {
   grid-gap: 1rem;
   margin-top: 1.5rem;
 }
+@media screen and (max-width: 1000px) {
+  div.teams-grid {
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+  }
+}

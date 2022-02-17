@@ -26,3 +26,8 @@ div.select-box label {
 div.issues-header button {
   margin-left: auto;
 }
+@media screen and (max-width: 500px) {
+  div.select-box label {
+    display: none;
+  }
+}

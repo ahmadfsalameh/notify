@@ -29,3 +29,8 @@ div.no-apps-content p {
 div.no-apps div.create-content {
   padding: 0;
 }
+@media screen and (max-width: 1000px) {
+  div.no-apps-visual {
+    display: none;
+  }
+}
