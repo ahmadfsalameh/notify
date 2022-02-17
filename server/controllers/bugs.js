@@ -44,6 +44,8 @@ export const createBug = async (req, res) => {
   const bug = new Bug({ app: app._id, owner: app.owner, ...bugData });
   await bug.save();
 
+  createNotification("new_bug", { app: app._id }, app.owner);
+
   res.status(201).send(bug);
 };
 
