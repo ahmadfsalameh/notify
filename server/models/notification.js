@@ -8,18 +8,16 @@ export const notificationsTypes = [
 ];
 
 const schema = mongoose.Schema({
-  sender: [
-    {
-      user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "users",
-      },
-      bug: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "bugs",
-      },
+  sender: {
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "users",
     },
-  ],
+    app: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "apps",
+    },
+  },
   receiver: [
     {
       type: mongoose.Schema.Types.ObjectId,

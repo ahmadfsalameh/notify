@@ -16,6 +16,8 @@ export const createNotification = async (type, sender, receiver) => {
 export const getNotifications = async (req, res) => {
   const { id } = req.user;
 
-  const notifications = await Notification.find({ receiver: id });
+  const notifications = await Notification.find({ receiver: id })
+    .populate("sender.user", ["name", "avatar"])
+    .populate("sender.app", "name");
   res.send(notifications);
 };
