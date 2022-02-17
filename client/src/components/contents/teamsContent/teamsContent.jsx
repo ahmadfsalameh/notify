@@ -17,7 +17,8 @@ const TeamsContent = () => {
   const setPopup = useContext(PopupContext);
   const [apps, setApps] = useState([]);
   const [teams, setTeams] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading1, setLoading1] = useState(true);
+  const [loading2, setLoading2] = useState(true);
 
   useEffect(() => {
     if (!token) return;
@@ -32,19 +33,20 @@ const TeamsContent = () => {
           }),
         ]);
       } catch (ex) {}
-      setLoading(false);
+      setLoading1(false);
     };
     const getTeams = async () => {
       try {
         const { data } = await teamsService.getTeams();
         setTeams(data);
       } catch (ex) {}
+      setLoading2(false);
     };
     getApps();
     getTeams();
   }, [token]);
 
-  if (loading) return <DashboardLoader />;
+  if (loading1 || loading2) return <DashboardLoader />;
 
   const { teams: teamsText } = text;
 
