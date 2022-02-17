@@ -16,6 +16,10 @@ const schema = mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: "apps",
     },
+    team: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "teams",
+    },
   },
   receiver: [
     {
