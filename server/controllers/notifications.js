@@ -22,5 +22,21 @@ export const getNotifications = async (req, res) => {
     .populate("sender.app", "name")
     .populate("sender.team", "name")
     .sort({ _id: -1 });
+
   res.send(notifications);
+};
+
+export const markRead = async (req, res) => {
+  const { id } = req.user;
+
+  await Notification.updateMany(
+    { receiver: id, readBy: { $ne: id } },
+    {
+      $push: {
+        readBy: id,
+      },
+    }
+  );
+
+  res.send();
 };
