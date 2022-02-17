@@ -46,7 +46,7 @@ const TeamsContent = () => {
     getTeams();
   }, [token]);
 
-  if (loading1 || loading2) return <DashboardLoader />;
+  if (loading1 || loading2 || !user) return <DashboardLoader />;
 
   const { teams: teamsText } = text;
 
