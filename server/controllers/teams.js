@@ -3,6 +3,7 @@ import _ from "lodash";
 import mongoose from "mongoose";
 import { getAppById } from "./apps.js";
 import { createTeamSchema } from "../validation/team.js";
+import { createNotification } from "./notifications.js";
 
 export const getTeams = async (req, res) => {
   const { id } = req.user;
@@ -93,6 +94,11 @@ export const addUserToTeam = async (userId, teamId) => {
 
   if (team.members.includes(userId)) return;
   else if (team.owner.equals(userId)) return;
+
+  createNotification("new_team_member", { team: team._id }, [
+    team.owner,
+    ...team.members,
+  ]);
 
   team.members.push(userId);
   await team.save();
