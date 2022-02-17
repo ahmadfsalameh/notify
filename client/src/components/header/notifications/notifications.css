@@ -1,0 +1,15 @@
+div.notifications-container-nn {
+  width: 100%;
+  padding: 1rem;
+}
+div.notifications-container-nn p {
+  font-size: 1rem;
+  color: var(--primary-black);
+}
+div.notifications-container {
+  width: 100%;
+  max-height: 400px;
+  overflow: hidden;
+  overflow-y: auto;
+  position: relative;
+}

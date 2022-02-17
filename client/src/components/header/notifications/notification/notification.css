@@ -1,0 +1,57 @@
+div.notification {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50px calc(100% - 110px - 2rem) 60px;
+  grid-gap: 1rem;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--primary-border);
+}
+div.notification:last-of-type {
+  border-bottom: 0;
+}
+div.notification-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--border-radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: var(--primary-blue);
+}
+div.notification-icon svg {
+  font-size: 1.5rem;
+  color: #fff;
+}
+div.notification-icon:empty {
+  background-color: var(--primary-background-gray);
+}
+div.notification-icon img {
+  background-color: #fff;
+  border: 1px solid var(--primary-border);
+  border-radius: var(--border-radius);
+}
+div.notification p {
+  width: 100%;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--primary-black);
+  display: flex;
+  flex-flow: column;
+  gap: 0.4rem;
+}
+div.notification p span:nth-child(1) {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+div.notification p span:nth-child(2) {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--primary-black-light);
+}
+div.notification button {
+  width: 100%;
+}
