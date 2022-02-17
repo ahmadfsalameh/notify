@@ -20,8 +20,12 @@ div.loading-spinner::before {
   border-top-color: transparent;
   animation: spin 400ms infinite linear;
 }
+div.loading-spinner-sm:before {
+  width: 12px;
+  height: 12px;
+}
 div.loading-spinner-icon::before {
-  border: 2px solid var(--primary-blue);
+  border-color: var(--primary-blue);
   border-top-color: transparent;
 }
 div.loading-spinner-dashboard::before {
