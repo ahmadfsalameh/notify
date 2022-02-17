@@ -35,11 +35,9 @@ const schema = mongoose.Schema({
   },
   readBy: [
     {
-      readerId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "users",
-        required: true,
-      },
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "users",
+      required: true,
     },
   ],
 });
