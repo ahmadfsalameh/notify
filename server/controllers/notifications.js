@@ -4,7 +4,7 @@ export const createNotification = async (type, sender, receiver) => {
   const notification = new Notification({
     sender: {
       user: sender.user,
-      bug: sender.bug,
+      app: sender.app,
     },
     receiver,
     type,
