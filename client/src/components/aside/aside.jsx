@@ -31,31 +31,31 @@ const Aside = () => {
           <li>
             <NavLink to="/">
               <BiHomeCircle />
-              {aside.dashboard}
+              <p>{aside.dashboard}</p>
             </NavLink>
           </li>
           <li>
             <NavLink to="/teams">
               <BiGroup />
-              {aside.teams}
+              <p>{aside.teams}</p>
             </NavLink>
           </li>
           <li>
             <NavLink to="/apps">
               <BsHddStack />
-              {aside.apps}
+              <p>{aside.apps}</p>
             </NavLink>
           </li>
           <li>
             <NavLink to="/issues">
               <BiBugAlt />
-              {aside.issues}
+              <p>{aside.issues}</p>
             </NavLink>
           </li>
           <li>
             <NavLink to="/tasks">
               <BsListCheck />
-              {aside.tasks}
+              <p>{aside.tasks}</p>
             </NavLink>
           </li>
         </ul>
@@ -63,13 +63,13 @@ const Aside = () => {
           <li>
             <NavLink to="/settings">
               <BiCog />
-              {aside.settings}
+              <p>{aside.settings}</p>
             </NavLink>
           </li>
           <li>
             <NavLink to="/help">
               <BiHelpCircle />
-              {aside.help}
+              <p>{aside.help}</p>
             </NavLink>
           </li>
         </ul>
