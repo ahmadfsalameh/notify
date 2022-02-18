@@ -1,6 +1,7 @@
 import axios from "axios";
+import configs from "../config";
 
-export const apiEndpoint = "http://127.0.0.1:3001/api";
+export const apiEndpoint = configs.apiEndpoint;
 
 axios.interceptors.response.use(null, (error) => {
   const { response } = error;
