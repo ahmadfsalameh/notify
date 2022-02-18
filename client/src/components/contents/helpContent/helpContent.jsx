@@ -22,7 +22,7 @@ const HelpContent = () => {
         <pre>
           {`<script>
   window.onerror = function (msg, url, lineNo, columnNo, err) {
-    fetch("${configs.apiEndpoint}/api/bugs", {
+    fetch("${configs.apiEndpoint}/bugs", {
       method: "POST",
       body: JSON.stringify({
         apiKey: "YOUR_API_KEY",
