@@ -1,5 +1,6 @@
 import React from "react";
 import { FaLink } from "react-icons/fa";
+import configs from "../../../config";
 
 import "./helpContent.css";
 
@@ -21,10 +22,10 @@ const HelpContent = () => {
         <pre>
           {`<script>
   window.onerror = function (msg, url, lineNo, columnNo, err) {
-    fetch("http://127.0.0.1:3001/api/bugs", {
+    fetch("${configs.apiEndpoint}/api/bugs", {
       method: "POST",
       body: JSON.stringify({
-        apiKey: "a22b9282ec0665b2ebb99df6caceb30240dd8a88",
+        apiKey: "YOUR_API_KEY",
         bug: {
           message: msg,
           error: JSON.stringify(err.stack),
