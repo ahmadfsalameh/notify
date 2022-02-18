@@ -5,6 +5,7 @@ div.error-stack {
 div.error-stack p {
   font-size: 1rem;
   color: var(--primary-black);
+  line-height: 1.7;
 }
 div.error-stack pre {
   width: 100%;
@@ -16,4 +17,5 @@ div.error-stack pre {
   line-height: 1.7;
   color: var(--primary-error-red);
   font-size: 0.9rem;
+  white-space: pre-wrap;
 }
