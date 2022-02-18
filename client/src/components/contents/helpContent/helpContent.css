@@ -40,4 +40,5 @@ section.help pre {
   line-height: 1.7;
   color: var(--primary-black);
   font-size: 0.9rem;
+  white-space: pre-wrap;
 }
