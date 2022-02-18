@@ -4,6 +4,9 @@
   "main": "index.js",
   "type": "module",
   "keywords": [],
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
     "@dicebear/avatars": "^4.10.2",
     "@dicebear/avatars-bottts-sprites": "^4.10.2",
