@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { UserContext } from "../../../context/userContext";
+import { PopupContext } from "../../../context/popupContext";
 import Select from "react-select";
 import IssuesGrid from "../issuesContent/issuesGrid/issuesGrid";
 import bugsService from "../../../services/bugsService";
@@ -10,6 +11,7 @@ import "./tasksContent.css";
 
 const TasksContent = () => {
   const { user, token } = useContext(UserContext);
+  const setPopup = useContext(PopupContext);
   const [tasks, setTasks] = useState([]);
   const [filterApp, setFilterApp] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -50,7 +52,12 @@ const TasksContent = () => {
           />
         </div>
       </div>
-      <IssuesGrid bugs={tasks} filterApp={filterApp} isTask={true} />
+      <IssuesGrid
+        bugs={tasks}
+        filterApp={filterApp}
+        isTask={true}
+        setPopup={setPopup}
+      />
     </section>
   );
 };
