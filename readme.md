@@ -46,7 +46,7 @@
 
 ## About The Project
 
-<img src="images/screenshot.png" />
+<img src="images/ipad-screenshot.png" />
 
 Issues tracking software is essential for managing businesses, but it's not usually tailored for developers and lacks some important functionalities. I know that this project isn't the most features-packed one, but you should give it a try.
 
