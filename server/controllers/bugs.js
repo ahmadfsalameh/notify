@@ -1,7 +1,7 @@
 import Bug, { bugStatus } from "../models/bug.js";
 import _ from "lodash";
 import mongoose from "mongoose";
-import { getTeamByAppId } from "./teams.js";
+import { getTeamById } from "./teams.js";
 import { getAppByApiKey } from "./apps.js";
 import { createNotification } from "./notifications.js";
 
@@ -53,11 +53,12 @@ export const assignBugToUser = async (req, res) => {
   const { id } = req.user;
   const { bugId } = req.params;
 
-  const { assignee } = req.body;
+  const { assignee, teamId } = req.body;
 
   if (
     !mongoose.Types.ObjectId.isValid(bugId) ||
-    !mongoose.Types.ObjectId.isValid(assignee)
+    !mongoose.Types.ObjectId.isValid(assignee) ||
+    !mongoose.Types.ObjectId.isValid(teamId)
   )
     return res.status(400).send(assignee);
 
@@ -65,7 +66,7 @@ export const assignBugToUser = async (req, res) => {
   if (!bug) return res.status(404).send();
 
   if (id !== assignee) {
-    const team = await getTeamByAppId(bug.app);
+    const team = await getTeamById(teamId);
     if (!team) return res.status(400).send();
     if (!team.owner.equals(id)) return res.status(403).send();
     if (!team.members.includes(assignee)) return res.status(400).send();

@@ -21,7 +21,7 @@ const Assignee = ({
     bugsService.setToken(token);
     setLoading(true);
     try {
-      await bugsService.assignBug(bugId, assignee._id);
+      await bugsService.assignBug(bugId, assignee._id, team._id);
 
       const bugsClone = [...bugs];
       const targetBug = bugsClone.find((bug) => bug._id === bugId);

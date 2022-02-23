@@ -8,8 +8,11 @@ const createBug = async (bug) => {
   return await http.post(`${apiEndpoint}/bugs`, bug);
 };
 
-const assignBug = async (bug, assignee) => {
-  return await http.patch(`${apiEndpoint}/bugs/assign/${bug}`, { assignee });
+const assignBug = async (bug, assignee, teamId) => {
+  return await http.patch(`${apiEndpoint}/bugs/assign/${bug}`, {
+    assignee,
+    teamId,
+  });
 };
 
 const getTasks = async () => {
