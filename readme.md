@@ -1,7 +1,5 @@
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.svg" width="100" height="100">
-  </a>
+  <img src="images/logo.svg" width="100" height="100" />
 
   <h3 align="center">Notify - Issue Tracker</h3>
 
